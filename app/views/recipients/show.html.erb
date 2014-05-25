@@ -15,5 +15,12 @@
   <%= number_to_currency @recipient.total_amount_received %>
 </p>
 
+<p>
+  <strong>Categories:</strong>
+  <%= @recipient.categories_string %>
+  <br/>
+  <%= link_to 'Add a new category', new_category_record_path %>
+</p>
+
 <%= link_to 'Edit', edit_recipient_path(@recipient) %> |
 <%= link_to 'Back', recipients_path %>

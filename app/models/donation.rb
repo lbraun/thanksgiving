@@ -1,7 +1,7 @@
 class Donation < ActiveRecord::Base
   belongs_to :recipient
 
-  validates_presence_of :amount, :recipient
+  validates_presence_of :amount, :recipient, :date
 
   VALID_METHODS = %w{
     credit_card

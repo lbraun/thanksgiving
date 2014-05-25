@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @category_record.recipient %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @category_record.category %>
+</p>
+
+<%= link_to 'Edit', edit_category_record_path(@category_record) %> |
+<%= link_to 'Back', category_records_path %>
