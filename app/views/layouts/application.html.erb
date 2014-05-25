@@ -12,10 +12,13 @@
   </head>
 
   <body>
-
-    <%= link_to 'Donations', donations_path %> | <%= link_to 'Recipients', recipients_path %>
-
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <header class="row">
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main class="row">
+      <div class="large-8 columns">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>
