@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :method %><br>
-    <%= f.text_field :method %>
+    <%= f.select :method, Donation.method_select_options %>
   </div>
   <div class="actions">
     <%= f.submit %>
