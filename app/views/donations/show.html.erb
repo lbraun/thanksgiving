@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= number_to_currency @donation.amount %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @donation.recipient %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @donation.date.to_s(:long) %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <%= @donation.method.humanize %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>

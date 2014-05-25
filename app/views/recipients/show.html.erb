@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recipient.name %>
+</p>
+
+<p>
+  <strong>Total Amount Received:</strong>
+  <%= number_to_currency @recipient.total_amount_received %>
+</p>
+
+<%= link_to 'Edit', edit_recipient_path(@recipient) %> |
+<%= link_to 'Back', recipients_path %>
