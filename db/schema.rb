@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525041300) do
+ActiveRecord::Schema.define(version: 20140525164631) do
 
   create_table "donations", force: true do |t|
     t.decimal  "amount"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140525041300) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "reasons_for_support"
   end
 
 end
