@@ -17,7 +17,7 @@
 
 <p>
   <strong>Method:</strong>
-  <%= @donation.method.humanize %>
+  <%= @donation.method.try(:humanize) %>
 </p>
 
 <%= link_to 'Edit', edit_donation_path(@donation) %> |

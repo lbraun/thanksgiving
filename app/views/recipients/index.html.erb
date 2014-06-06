@@ -12,7 +12,7 @@
   <tbody>
     <% @recipients.each do |recipient| %>
       <tr>
-        <td><%= recipient.name %></td>
+        <td><%= link_to recipient.name, recipient %></td>
         <td><%= number_to_currency recipient.total_amount_received %></td>
         <td><%= link_to 'Show', recipient %></td>
         <td><%= link_to 'Edit', edit_recipient_path(recipient) %></td>

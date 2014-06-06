@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= link_to 'Edit', edit_recipient_path(@recipient) %> |
+  <%= link_to 'Back', recipients_path %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @recipient.name %>
 </p>
@@ -22,5 +27,7 @@
   <%= link_to 'Add a new category', new_category_record_path %>
 </p>
 
-<%= link_to 'Edit', edit_recipient_path(@recipient) %> |
-<%= link_to 'Back', recipients_path %>
+<p>
+  <strong>Donations:</strong>
+  <%= render 'donations/index', donations: @donations %>
+</p>

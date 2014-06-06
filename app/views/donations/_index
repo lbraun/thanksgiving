@@ -1,0 +1,29 @@
+<p><%= link_to 'Show all', donations_path if params[:year] %></p>
+
+<p><strong>Total:</strong> <%= number_to_currency donations.sum(:amount) %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Recipient</th>
+      <th>Year</th>
+      <!-- <th>Date</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% donations.each do |donation| %>
+      <tr>
+        <td><%= number_to_currency donation.amount %></td>
+        <td><%= link_to donation.recipient, donation.recipient %></td>
+        <td><%= link_to donation.date.year, donations_path(year: donation.date.year) %></td>
+        <!-- <td><%= donation.date.to_s(:long) %></td> -->
+        <td><%= link_to 'Show', donation %></td>
+        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+        <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,28 +1,6 @@
 <h1>Listing donations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Recipient</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @donations.each do |donation| %>
-      <tr>
-        <td><%= number_to_currency donation.amount %></td>
-        <td><%= donation.recipient %></td>
-        <td><%= donation.date.to_s(:long) %></td>
-        <td><%= link_to 'Show', donation %></td>
-        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-        <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'index', donations: @donations %>
 
 <br>
 
