@@ -4,7 +4,13 @@ class CategoryRecordsController < ApplicationController
   # GET /category_records
   # GET /category_records.json
   def index
-    @category_records = CategoryRecord.all
+    # @search = CategoryRecord.search(params[:search])
+    # @category_records = @search.all   # load all matching records
+    if params[:category]
+      @category_records = CategoryRecord.where(category: params[:category])
+    else
+      @category_records = CategoryRecord.all
+    end
   end
 
   # GET /category_records/1

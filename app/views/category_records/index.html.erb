@@ -1,5 +1,6 @@
 <h1>Listing category records</h1>
 
+<p><%= link_to 'Show all', category_records_path if params[:category] %></p>
 <table>
   <thead>
     <tr>
@@ -13,7 +14,7 @@
     <% @category_records.each do |category_record| %>
       <tr>
         <td><%= link_to category_record.recipient, category_record.recipient %></td>
-        <td><%= category_record.category %></td>
+        <td><%= link_to category_record.category, category_records_path(category: category_record.category) %></td>
         <td><%= link_to 'Show', category_record %></td>
         <td><%= link_to 'Edit', edit_category_record_path(category_record) %></td>
         <td><%= link_to 'Destroy', category_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
