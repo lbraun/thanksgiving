@@ -1,7 +1,11 @@
-<h1>Listing donations</h1>
+<h1><%= "#{params[:year]}" if params[:year] %> Donations</h1>
 
-<%= render 'index', donations: @donations %>
+<% if params[:year] %>
+  <%= render 'year_index', donations: @donations, year: params[:year] %>
+<% else %>
+  <%= render 'index', donations: @donations %>
+<% end %>
 
 <br>
 
-<%= link_to 'New Donation', new_donation_path %>
+<%= link_to 'New Donation', new_donation_path, class: 'button' %>

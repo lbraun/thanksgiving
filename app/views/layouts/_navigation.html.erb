@@ -1,7 +1,7 @@
 <nav class="top-bar">
   <ul class="title-area">
     <li class="name">
-      <h1><%= link_to "Home", donations_path %></a></h1>
+      <h1><%= link_to "Home", donations_path(year: Date.today.year) %></a></h1>
     </li>
   </ul>
   <section class="top-bar-section">

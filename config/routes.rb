@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  resources :category_records
-
-  resources :recipients
+  resources :recipients do
+    resources :category_records
+  end
 
   resources :donations
 

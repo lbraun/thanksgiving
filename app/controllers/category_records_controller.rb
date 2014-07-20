@@ -1,4 +1,5 @@
 class CategoryRecordsController < ApplicationController
+  before_filter :load_parents
   before_action :set_category_record, only: [:show, :edit, :update, :destroy]
 
   # GET /category_records
@@ -68,13 +69,18 @@ class CategoryRecordsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_category_record
-      @category_record = CategoryRecord.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def category_record_params
-      params.require(:category_record).permit(:recipient_id, :category)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_category_record
+    @category_record = CategoryRecord.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def category_record_params
+    params.require(:category_record).permit(:recipient_id, :category)
+  end
+
+  def load_parents
+    @recipient = Recipient.find(params[:recipient_id])
+  end
 end

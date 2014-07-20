@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Total Amount Received</th>
+      <th>Total Donations</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,7 +13,7 @@
     <% @recipients.each do |recipient| %>
       <tr>
         <td><%= link_to recipient.name, recipient %></td>
-        <td><%= number_to_currency recipient.total_amount_received %></td>
+        <td><%= number_to_currency recipient.total_donations %></td>
         <td><%= link_to 'Show', recipient %></td>
         <td><%= link_to 'Edit', edit_recipient_path(recipient) %></td>
         <td><%= link_to 'Destroy', recipient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Recipient', new_recipient_path %>
+<%= link_to 'New Recipient', new_recipient_path, class: 'button' %>

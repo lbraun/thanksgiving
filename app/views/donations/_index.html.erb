@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Recipient</th>
+      <% this_year = Date.today.year  %>
+      <% years = (this_year - 4..this_year) %>
+      <% years.each do |year| %>
+        <th class="accounting"><%= link_to year, donations_path(year: year) %></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% totals = {} %>
+    <% years.each { |year| totals[year] = 0 } %>
+    <% Recipient.all.order(:name).each do |recipient| %>
+      <tr>
+        <td><%= link_to recipient, recipient %></td>
+        <% years.each do |year| %>
+          <% amount = recipient.total_donations(year: year) %>
+          <td class="accounting"><%= display_currency(amount) %></td>
+          <% totals[year] += amount %>
+        <% end %>
+      </tr>
+    <% end %>
+    <tr>
+      <td><strong>Total</strong></td>
+      <% years.each do |year| %>
+        <td class="accounting"><strong><%= number_to_currency totals[year] %></strong></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
