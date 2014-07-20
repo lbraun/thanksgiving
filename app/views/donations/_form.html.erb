@@ -11,24 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.text_field :amount %>
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.label :amount, class: "right inline" %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.text_field :amount %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :recipient_id %><br>
-    <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
-    <%= link_to 'Add new recipient', new_recipient_path %>
+  
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.label :recipient_id, class: "right inline" %>
+    </div>
+    <div class="small-6 columns">
+      <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
+    </div>
+    <div class="small-3 columns">
+      <%= link_to 'Add new recipient', new_recipient_path, class: "button tiny" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.label :date, class: "right inline" %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.text_field :date, class: 'datepicker' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :method %><br>
-    <%= f.select :method, Donation.method_select_options %>
+
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.label :method, class: "right inline" %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.select :method, Donation.method_select_options %>
+    </div>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>

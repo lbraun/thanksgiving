@@ -39,3 +39,5 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'foundation-rails'
+gem 'jquery-ui-rails'
+gem 'font-awesome-rails'
