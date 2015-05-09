@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
+gem 'rails_12factor'
