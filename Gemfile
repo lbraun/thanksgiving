@@ -43,3 +43,4 @@ gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'rails_12factor'
+gem "omniauth-google-oauth2"

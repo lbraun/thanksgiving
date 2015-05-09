@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140525170634) do
+ActiveRecord::Schema.define(version: 20150509221712) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "category_records", force: true do |t|
     t.integer  "recipient_id"
@@ -34,6 +37,17 @@ ActiveRecord::Schema.define(version: 20140525170634) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "reasons_for_support"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "approval_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -10,6 +10,14 @@
       <li><%= link_to 'Donations', donations_path %></li>
       <li class="divider"></li>
       <li><%= link_to 'Recipients', recipients_path %></li>
+      <li class="divider"></li>
+      <li>
+        <% if current_user %>
+          <%= link_to "Sign out #{current_user.name}", signout_path, id: "sign_out" %>
+        <% else %>
+          <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+        <% end %>
+      </li>
     </ul>
   </div>
 </nav>
