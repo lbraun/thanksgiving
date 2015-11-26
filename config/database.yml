@@ -1,15 +1,14 @@
-development:
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: thanksgiving_development
   pool: 5
-  username: rails
-  password: railspw
+  username: <%= ENV['RAILS_POSTGRES_USER'] %>
+  password:
+
+development:
+  <<: *default
+  database: thanksgiving_development
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: thanksgiving_test
-  pool: 5
-  username: rails
-  password: railspw
