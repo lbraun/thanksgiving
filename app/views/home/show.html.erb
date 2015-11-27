@@ -1,2 +1,14 @@
-<h1>Home#show</h1>
-<p>Find me in app/views/home/show.html.erb</p>
+<h1>Welcome to thanksgiving!</h1>
+<% if current_user.present? %>
+  <% if current_user.approved? %>
+    <h3>What would you like to see?</h3>
+    <ul>
+      <li><%= link_to('Donations', [:donations]) %></li>
+      <li><%= link_to('Recipients', [:recipients]) %></li>
+    </ul>
+  <% else %>
+    <p>Your account must be approved before you can access the app.</p>
+  <% end %>
+<% else %>
+  <p>Please sign in.</p>
+<% end %>

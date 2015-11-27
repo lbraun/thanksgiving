@@ -39,8 +39,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :development, :test do
+  gem 'byebug'
+end
+
 gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'rails_12factor'
-gem "omniauth-google-oauth2"
+gem 'omniauth-google-oauth2'
