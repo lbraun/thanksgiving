@@ -2,8 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
 
-  before_filter :authenticate
-  # before_filter :authenticate_user
+  # Basic HTTP authentication
+  # before_filter :authenticate
+
+  # Google oauth
+  before_filter :authenticate_user
 
   def current_user
     @current_user ||= User.find(session[:user_id]) rescue nil
