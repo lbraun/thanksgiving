@@ -1,2 +1,2 @@
-describe 'Donation' do
+describe Donation do
 end

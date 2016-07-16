@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
     approval_at.present?
   end
 
-  def approve!
+  def approve
     self.approval_at = Time.now
-    self.save!
+    save!
   end
 
   def self.from_omniauth(auth)
