@@ -18,7 +18,7 @@
         <td><%= user.created_at_string %></td>
         <td><%= user.approval_at_string %></td>
         <td><%= user.admin %></td>
-        <td><%= link_to "Approve", [:approve, user] %></td>
+        <td><%= link_to("Approve", [:approve, user]) unless user.approved? %></td>
       <% end %>
     <% end %>
   </tbody>

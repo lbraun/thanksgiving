@@ -18,7 +18,7 @@ feature "User management" do
           "Created At" => subject.created_at_string,
           "Approval At" => subject.approval_at_string,
           "Admin" => "true",
-          "Actions" => "Approve",
+          "Actions" => "",
         }
       )
     end
@@ -48,8 +48,18 @@ feature "User management" do
         end
 
         it "approves the user" do
+          expect(subject.reload).to be_approved
+        end
+
+        it "displays an approval time" do
           within(:row_for, subject) do
-            expect(find(:value_under_header, "Approval At").text).to include(Date.today.to_s(:long))
+            expect(find(:value_under_header, "Approval At").text).to_not be_blank
+          end
+        end
+
+        it "no longer shows the approve link" do
+          within(:row_for, subject) do
+            expect(find(:value_under_header, "Actions").text).to eq ""
           end
         end
       end
