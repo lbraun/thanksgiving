@@ -8,4 +8,40 @@ describe User do
       end
     end
   end
+
+  describe '#approved?' do
+    context 'when a user is approved' do
+      before { subject.approval_at = Time.now }
+
+      it 'returns true' do
+        expect(subject.approved?).to be true
+      end
+    end
+
+    context 'when a user is not approved' do
+      before { subject.approval_at = nil }
+
+      it 'returns true' do
+        expect(subject.approved?).to be false
+      end
+    end
+  end
+
+  describe '#admin?' do
+    context 'when a user is an admin' do
+      before { subject.admin = true }
+
+      it 'returns true' do
+        expect(subject.admin?).to be true
+      end
+    end
+
+    context 'when a user is not an admin' do
+      before { subject.admin = false }
+
+      it 'returns true' do
+        expect(subject.admin?).to be false
+      end
+    end
+  end
 end

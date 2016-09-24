@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-  def approved?
-    approval_at.present?
+  def approval_at_string
+    approval_at && approval_at.to_s(:long)
+  end
+
+  def created_at_string
+    created_at.to_s(:long)
   end
 
   def approve
@@ -8,13 +12,19 @@ class User < ActiveRecord::Base
     save!
   end
 
+  def approved?
+    approval_at.present?
+  end
+
+  def admin?
+    self.admin
+  end
+
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
   end

@@ -8,9 +8,13 @@ Rails.application.routes.draw do
 
   root to: "home#show"
 
+  resources :donations
+
   resources :recipients do
     resources :category_records
   end
 
-  resources :donations
+  resources :users, only: [:index] do
+    get :approve, on: :member
+  end
 end

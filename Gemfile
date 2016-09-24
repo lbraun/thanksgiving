@@ -8,7 +8,7 @@ gem 'rails', '4.1.9'
 gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -33,5 +33,7 @@ gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
+  gem 'launchy'
   gem 'rspec-rails'
 end

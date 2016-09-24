@@ -67,13 +67,14 @@ class DonationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_donation
-      @donation = Donation.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def donation_params
-      params.require(:donation).permit(:amount, :recipient_id, :date, :method)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_donation
+    @donation = Donation.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def donation_params
+    params.require(:donation).permit(:amount, :recipient_id, :date, :method)
+  end
 end

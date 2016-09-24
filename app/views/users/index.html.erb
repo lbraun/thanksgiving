@@ -1,0 +1,25 @@
+<h1>Listing users</h1>
+
+<table id="users_table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Approval At</th>
+      <th>Admin</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <%= content_tag_for(:tr, user) do %>
+        <td><%= user.name %></td>
+        <td><%= user.created_at_string %></td>
+        <td><%= user.approval_at_string %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to "Approve", [:approve, user] %></td>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
