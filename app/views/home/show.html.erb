@@ -5,6 +5,9 @@
     <ul>
       <li><%= link_to('Donations', [:donations]) %></li>
       <li><%= link_to('Recipients', [:recipients]) %></li>
+      <% if current_user.admin? %>
+        <li><%= link_to('Users', [:users]) %></li>
+      <% end %>
     </ul>
   <% else %>
     <p>Your account must be approved before you can access the app.</p>
