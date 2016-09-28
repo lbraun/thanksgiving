@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
+  # GET /users/:id/remove_approval
+  def remove_approval
+    User.find(params[:id]).remove_approval
+    redirect_to :users
+  end
+
   # DELETE /users/:id
   def destroy
     User.find(params[:id]).destroy
