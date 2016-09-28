@@ -18,7 +18,7 @@ feature "User management" do
           "Created At" => subject.created_at_string,
           "Approval At" => subject.approval_at_string,
           "Admin" => "true",
-          "Actions" => "",
+          "Actions" => "Delete",
         }
       )
     end
@@ -35,7 +35,7 @@ feature "User management" do
             "Created At" => subject.created_at_string,
             "Approval At" => "",
             "Admin" => "",
-            "Actions" => "Approve",
+            "Actions" => "Approve Delete",
           }
         )
       end
@@ -59,8 +59,20 @@ feature "User management" do
 
         it "no longer shows the approve link" do
           within(:row_for, subject) do
-            expect(find(:value_under_header, "Actions").text).to eq ""
+            expect(find(:value_under_header, "Actions").text).to eq "Delete"
           end
+        end
+      end
+
+      context "and the current user clicks the delete link for that user" do
+        before do
+          within(:row_for, subject) do
+            click_link "Delete"
+          end
+        end
+
+        it "deletes the user" do
+          expect(User.where(id: subject.id)).to be_empty
         end
       end
     end

@@ -12,6 +12,12 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
+  # DELETE /users/:id
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to :users
+  end
+
   private
 
   def authenticate_admin_user

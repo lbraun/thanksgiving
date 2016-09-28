@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :category_records
   end
 
-  resources :users, only: [:index] do
+  resources :users, only: [:index, :destroy] do
     get :approve, on: :member
   end
 end
