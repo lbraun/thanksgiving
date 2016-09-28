@@ -9,6 +9,16 @@ describe User do
     end
   end
 
+  describe '#remove_approval' do
+    context 'when a user is approved' do
+      before { subject.approval_at = Time.now }
+
+      it 'removes their approval' do
+        expect { subject.remove_approval }.to change { subject.approved? }.from(true).to(false)
+      end
+    end
+  end
+
   describe '#approved?' do
     context 'when a user is approved' do
       before { subject.approval_at = Time.now }

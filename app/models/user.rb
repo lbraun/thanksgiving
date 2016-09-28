@@ -12,6 +12,11 @@ class User < ActiveRecord::Base
     save!
   end
 
+  def remove_approval
+    self.approval_at = nil
+    save!
+  end
+
   def approved?
     approval_at.present?
   end

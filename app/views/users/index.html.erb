@@ -18,7 +18,11 @@
         <td><%= user.created_at_string %></td>
         <td><%= user.approval_at_string %></td>
         <td><%= user.admin %></td>
-        <td><%= link_to "Approve", [:approve, user] %></td>
+        <td>
+          <%= link_to("Approve", [:approve, user]) unless user.approved? %>
+          <%= link_to("Remove Approval", [:remove_approval, user]) if user.approved? %>
+          <%= link_to("Delete", user, method: :delete) %>
+        </td>
       <% end %>
     <% end %>
   </tbody>

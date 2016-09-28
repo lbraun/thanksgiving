@@ -54,4 +54,62 @@ describe UsersController do
       end
     end
   end
+
+  describe "GET /users/:id/remove_approval" do
+    context "when the current user is an admin" do
+      let!(:current_user) { User.create!(admin: true, approval_at: Time.now) }
+
+      context "given an approved user" do
+        let(:approved_user) { User.create!(approval_at: Time.now) }
+
+        it "unapproves the given user" do
+          expect(approved_user.approved?).to be true
+          get :remove_approval, id: approved_user.id
+
+          expect(approved_user.reload.approved?).to be false
+        end
+
+        it "renders the index template" do
+          get :remove_approval, id: approved_user.id
+          expect(response).to redirect_to([:users])
+        end
+      end
+    end
+
+    context "when the current user is not an admin" do
+      let!(:current_user) { User.create!(admin: false, approval_at: Time.now) }
+
+      it "raises a 404 error" do
+        expect { get :remove_approval, id: 1 }.to raise_error(ActionController::RoutingError, "Not Found")
+      end
+    end
+  end
+
+  describe "DELETE /users/:id" do
+    context "when the current user is an admin" do
+      let!(:current_user) { User.create!(admin: true, approval_at: Time.now) }
+
+      context "given a user" do
+        let(:user) { User.create! }
+
+        it "destroys the given user" do
+          delete :destroy, id: user.id
+          expect(User.find_by_id(user.id)).to be_nil
+        end
+
+        it "renders the index template" do
+          delete :destroy, id: user.id
+          expect(response).to redirect_to([:users])
+        end
+      end
+    end
+
+    context "when the current user is not an admin" do
+      let!(:current_user) { User.create!(admin: false, approval_at: Time.now) }
+
+      it "raises a 404 error" do
+        expect { delete :destroy, id: 1 }.to raise_error(ActionController::RoutingError, "Not Found")
+      end
+    end
+  end
 end
