@@ -35,7 +35,7 @@ class CategoryRecordsController < ApplicationController
 
     respond_to do |format|
       if @category_record.save
-        format.html { redirect_to @category_record, notice: 'Category record was successfully created.' }
+        format.html { redirect_to @recipient, notice: 'Category record was successfully created.' }
         format.json { render :show, status: :created, location: @category_record }
       else
         format.html { render :new }

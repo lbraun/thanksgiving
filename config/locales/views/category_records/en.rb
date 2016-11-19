@@ -1,7 +1,7 @@
 {
   en: {
     category_records: {
-      new: {
+      form: {
         existing_categories: "Existing categories"
       }
     }

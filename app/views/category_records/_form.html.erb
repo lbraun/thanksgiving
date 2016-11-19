@@ -11,12 +11,16 @@
     </div>
   <% end %>
 
+  <%= f.hidden_field :recipient_id, value: @recipient.id %>
+
   <div class="field">
     <%= f.text_field :category %>
   </div>
 
-  <p>Existing categories:</p>
-  <p><%= colorize_categories CategoryRecord.all.group(:category) %></p>
+  <% if CategoryRecord.count > 0 %>
+    <p><%= t(".existing_categories") %></p>
+    <p><%= colorize_categories CategoryRecord.select(:category).group(:category) %></p>
+  <% end %>
 
   <div class="actions">
     <%= f.submit %>

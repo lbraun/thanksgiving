@@ -18,7 +18,7 @@
 <p>
   <strong>Categories:</strong>
   <%= colorize_categories(@recipient.category_records) %>
-  <%= link_to 'Add a new category', [:new, @recipient, :category_record] %>
+  <%= link_to t(".new_category_link"), [:new, @recipient, :category_record] %>
 </p>
 
 <p>
