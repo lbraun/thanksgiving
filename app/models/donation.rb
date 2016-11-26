@@ -1,12 +1,18 @@
 class Donation < ActiveRecord::Base
   belongs_to :recipient
 
-  validates_presence_of :amount, :recipient, :date
+  validates_presence_of :amount, :recipient, :date, :status
 
   VALID_METHODS = %w{
     credit_card
     cash
     other
+  }
+
+  VALID_STATUSES = %w{
+    planned
+    completed
+    acknowledged
   }
 
   def to_s
@@ -15,5 +21,13 @@ class Donation < ActiveRecord::Base
 
   def self.method_select_options
     VALID_METHODS.map { |method| [method.humanize, method] }
+  end
+
+  def self.status_select_options
+    VALID_STATUSES.map { |status| [status.humanize, status] }
+  end
+
+  def completed?
+    %w(completed acknowledged).include? status
   end
 end
