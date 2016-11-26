@@ -3,9 +3,9 @@
 <% if params[:year] %>
   <%= render 'year_index', donations: @donations, year: params[:year] %>
 <% else %>
-  <%= render 'index', donations: @donations %>
+  <%= render 'index' %>
 <% end %>
 
 <br>
 
-<%= link_to 'New Donation', new_donation_path, class: 'button' %>
+<%= link_to t("defaults.new_link", model: Donation), new_donation_path, class: 'button' %>

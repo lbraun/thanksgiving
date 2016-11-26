@@ -19,7 +19,7 @@
       <%= f.text_field :amount %>
     </div>
   </div>
-  
+
   <div class="row">
     <div class="small-3 columns">
       <%= f.label :recipient_id, class: "right inline" %>
@@ -47,6 +47,15 @@
     </div>
     <div class="small-6 columns end">
       <%= f.select :method, Donation.method_select_options %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-3 columns">
+      <%= f.label :status, class: "right inline" %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.select :status, Donation.status_select_options %>
     </div>
   </div>
 
