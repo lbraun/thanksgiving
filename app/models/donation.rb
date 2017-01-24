@@ -2,7 +2,7 @@ class Donation < ActiveRecord::Base
   belongs_to :recipient
   belongs_to :user
 
-  validates_presence_of :amount, :recipient, :date, :status
+  validates_presence_of :amount, :recipient, :date, :status, :user
 
   VALID_METHODS = %w{
     credit_card
@@ -30,5 +30,9 @@ class Donation < ActiveRecord::Base
 
   def completed?
     %w(completed acknowledged).include? status
+  end
+
+  def year
+    date.year
   end
 end

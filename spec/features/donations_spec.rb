@@ -34,6 +34,36 @@ feature "Donation show" do
 end
 
 feature "Donation index" do
+  context "when a user visits the primary donation index" do
+    let!(:current_user) { login_new_user }
+
+    let(:index_path) { polymorphic_path(:donations) }
+    let(:no_records_message) { I18n.t("defaults.no_records", records: "donations") }
+
+    let!(:donation) do
+      Donation.create!(
+        amount: 1234,
+        date: Date.today,
+        recipient: Recipient.create!(name: "Test Recipient"),
+        status: "planned",
+        user: user,
+      )
+    end
+
+    let(:user) { current_user }
+
+    before { visit index_path }
+
+    context "and no donations exist for the current user" do
+      let(:user) { User.create! }
+
+      it "shows an appropriate message" do
+        expect(page).to_not have_content "$1,234.00"
+        expect(page).to have_content no_records_message
+      end
+    end
+  end
+
   context "when a user visits the donation index page for the year 2000" do
     let!(:current_user) { login_new_user }
 
@@ -50,7 +80,7 @@ feature "Donation index" do
       )
     end
 
-    let(:user) { nil }
+    let(:user) { current_user }
 
     before { visit year_2000_index_path }
 
