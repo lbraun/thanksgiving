@@ -29,7 +29,10 @@ gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
-gem 'rails_12factor'
+
+group :production do
+  gem 'rails_12factor'
+end
 
 group :development, :test do
   gem 'byebug'
