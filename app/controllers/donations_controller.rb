@@ -4,11 +4,11 @@ class DonationsController < ApplicationController
   # GET /donations
   # GET /donations.json
   def index
+    @donations = Donation.where(user: current_user).order(date: :desc)
+
     if params[:year]
       sql = "'#{params[:year]}-01-01' <= date AND date <= '#{params[:year]}-12-31'"
-      @donations = Donation.where(sql).order(date: :desc)
-    else
-      @donations = Donation.all.order(date: :desc)
+      @donations = @donations.where(sql)
     end
   end
 

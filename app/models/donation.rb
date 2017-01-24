@@ -1,5 +1,6 @@
 class Donation < ActiveRecord::Base
   belongs_to :recipient
+  belongs_to :user
 
   validates_presence_of :amount, :recipient, :date, :status
 
