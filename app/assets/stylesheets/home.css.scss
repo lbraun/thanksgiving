@@ -1,3 +1,30 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding-top: 45px;
+}
+
+.super-title {
+  padding: 100px 20px 20px 20px;
+  font-size: 60px;
+  text-align: center;
+  line-height: 1;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sub-super-title {
+  padding: 20px 20px 20px 20px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.super-button, .super-links {
+  padding: 20px 20px 200px 20px;
+  text-align: center;
+}
+
