@@ -7,6 +7,9 @@ See the app's [waffle.io page](https://waffle.io/lbraun/thanksgiving) for issues
 
 [![Stories in Ready](https://badge.waffle.io/lbraun/thanksgiving.png?label=ready&title=Ready)](https://waffle.io/lbraun/thanksgiving)
 
+## Installation
+For information on how to set up the app locally, please see the [Getting Started Guide](https://github.com/lbraun/thanksgiving/wiki/Getting-Started).
+
 ## Conventions
 - Ruby: https://github.com/bbatsov/ruby-style-guide
 - RSpec: https://github.com/reachlocal/rspec-style-guide
