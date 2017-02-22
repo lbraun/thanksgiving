@@ -17,3 +17,13 @@
  *= require font-awesome
 
  */
+
+main {
+  padding-top: 45px;
+}
+
+.footer {
+  background-color: lightgray;
+  padding: 10px 40px;
+  text-align: center;
+}

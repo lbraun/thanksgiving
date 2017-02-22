@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if current_user
-      unless current_user.approved? || params[:controller]== "sessions" && params[:action]== "destroy"
+      unless current_user.approved? || params[:controller] == "sessions" && params[:action] == "destroy"
         flash.alert = "Your account must be approved by an administrator to continue"
         redirect_to root_path
       end

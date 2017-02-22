@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     redirect_to :users
   end
 
+  # GET /users/:id/toggle_admin
+  def toggle_admin
+    User.find(params[:id]).toggle_admin
+    redirect_to :users
+  end
+
   # DELETE /users/:id
   def destroy
     User.find(params[:id]).destroy

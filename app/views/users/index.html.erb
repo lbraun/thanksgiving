@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Created At</th>
+      <th>Approved</th>
       <th>Approval At</th>
       <th>Admin</th>
       <th>Actions</th>
@@ -16,12 +17,20 @@
       <%= content_tag_for(:tr, user) do %>
         <td><%= user.name %></td>
         <td><%= user.created_at_string %></td>
-        <td><%= user.approval_at_string %></td>
-        <td><%= user.admin %></td>
+
         <td>
-          <%= link_to("Approve", [:approve, user]) unless user.approved? %>
-          <%= link_to("Remove Approval", [:remove_approval, user]) if user.approved? %>
-          <%= link_to("Delete", user, method: :delete) %>
+          <%= link_to("No", [:approve, user], class: "button tiny secondary") unless user.approved? %>
+          <%= link_to("Yes", [:remove_approval, user], class: "button tiny success") if user.approved? %>
+        </td>
+
+        <td><%= user.approval_at_string %></td>
+
+        <td>
+          <%= link_to(user.admin_string, [:toggle_admin, user], class: "button tiny expand #{user.admin_button_class}") %>
+        </td>
+
+        <td>
+          <%= link_to("Delete", user, method: :delete, data: { confirm: "Are you sure?" }, class: "button tiny alert") %>
         </td>
       <% end %>
     <% end %>
