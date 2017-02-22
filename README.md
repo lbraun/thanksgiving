@@ -7,6 +7,8 @@ See the app's [waffle.io page](https://waffle.io/lbraun/thanksgiving) for issues
 
 [![Stories in Ready](https://badge.waffle.io/lbraun/thanksgiving.png?label=ready&title=Ready)](https://waffle.io/lbraun/thanksgiving)
 
+Please read our [contributor covenant](https://github.com/lbraun/thanksgiving/blob/master/contributor_covenant.md) before getting started. Thank you!
+
 ## Installation
 For information on how to set up the app locally, please see the [Getting Started Guide](https://github.com/lbraun/thanksgiving/wiki/Getting-Started).
 
