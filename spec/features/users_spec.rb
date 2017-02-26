@@ -42,9 +42,7 @@ feature "User management" do
 
       context "and the current user clicks the approve link for that user" do
         before do
-          within(:row_for, subject) do
-            click_link "Approve"
-          end
+          find(:xpath, "//a[@href='/users/#{subject.id}/approve']").click
         end
 
         it "approves the user" do
