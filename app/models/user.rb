@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
     admin? ? "success" : "secondary"
   end
 
+  def user_button_class
+    approved? ? "approved" : "not-approved"
+  end
+
   def approved?
     approval_at.present?
   end

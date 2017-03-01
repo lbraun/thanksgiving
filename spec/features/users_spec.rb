@@ -33,8 +33,8 @@ feature "user management" do
 
     context "the admin clicks No for user approval" do
       before do
-        # find(:xpath, "//a[@href='/users/#{unapproved_user.id}/approve']").click
-        find(:xpath, approve_user_path(unapproved_user)).click
+        find('.not-approved').click
+
       end
 
       it "approves the user" do

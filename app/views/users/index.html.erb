@@ -19,8 +19,8 @@
         <td><%= user.created_at_string %></td>
 
         <td>
-          <%= link_to("No", [:approve, user], class: "button tiny secondary") unless user.approved? %>
-          <%= link_to("Yes", [:remove_approval, user], class: "button tiny success") if user.approved? %>
+          <%= link_to("No", [:approve, user], class: "button tiny secondary #{user.user_button_class}") unless user.approved? %>
+          <%= link_to("Yes", [:remove_approval, user], class: "button tiny success #{user.user_button_class}") if user.approved? %>
         </td>
 
         <td><%= user.approval_at_string %></td>
