@@ -31,9 +31,10 @@ feature "user management" do
       expect(page).to_not have_link('Yes', :href => toggle_admin_user_path(users.first.id))
     end
 
-    context "the admin clicks Yes for user approval" do
+    context "the admin clicks No for user approval" do
       before do
-        find(:xpath, "//a[@href='/users/#{unapproved_user.id}/approve']").click
+        # find(:xpath, "//a[@href='/users/#{unapproved_user.id}/approve']").click
+        find(:xpath, approve_user_path(unapproved_user)).click
       end
 
       it "approves the user" do
@@ -44,7 +45,7 @@ feature "user management" do
         expect(page).to have_content(unapproved_user.approval_at_string)
       end
 
-      it "no longer shows the approve link" do
+      it "shows Yes instead of No button" do
         expect(page).to have_link('Yes', :href => remove_approval_user_path(unapproved_user))
       end
 
