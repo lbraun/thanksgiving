@@ -25,10 +25,10 @@ feature "user management" do
       expect(page).to have_css("#user_#{users.first.id}", :text => "#{users.first.name}")
       expect(page).to have_css("#user_#{users.first.id}", :text => "#{users.first.created_at_string}")
       expect(page).to have_css("#user_#{users.first.id}", :text => "#{users.first.approval_at_string}")
-      expect(page).to have_link('Yes', :href => remove_approval_user_path(users.first.id))
-      expect(page).to_not have_link('No', :href => approve_user_path(users.first.id))
-      expect(page).to have_link('No', :href => toggle_admin_user_path(users.first.id))
-      expect(page).to_not have_link('Yes', :href => toggle_admin_user_path(users.first.id))
+      expect(page).to have_link("Yes", :href => remove_approval_user_path(users.first.id))
+      expect(page).to_not have_link("No", :href => approve_user_path(users.first.id))
+      expect(page).to have_link("No", :href => toggle_admin_user_path(users.first.id))
+      expect(page).to_not have_link("Yes", :href => toggle_admin_user_path(users.first.id))
     end
 
     context "and admin clicks No for user approval" do
