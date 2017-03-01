@@ -19,7 +19,7 @@ class DonationsController < ApplicationController
 
   # GET /donations/new
   def new
-    @donation = Donation.new
+    @donation = Donation.new(date: Date.today)
   end
 
   # GET /donations/1/edit
