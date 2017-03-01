@@ -31,7 +31,7 @@ feature "user management" do
       expect(page).to_not have_link('Yes', :href => toggle_admin_user_path(users.first.id))
     end
 
-    context "the admin clicks No for user approval" do
+    context "and admin clicks No for user approval" do
       before do
         find('.not-approved').click
 
