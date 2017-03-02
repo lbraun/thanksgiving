@@ -3,8 +3,8 @@ feature "user management" do
 
   context "when an admin visits the users index" do
     let!(:admin) { login_new_admin_user }
-    let!(:users) { create_list(:user, 2) }
-    let!(:unapproved_user) { create(:user, approval_at: nil)}
+    let!(:users) { create_list(:user, 2, approval_at: "01/01/2001") }
+    let!(:unapproved_user) { create(:user) }
 
     before { visit users_index_path }
 
