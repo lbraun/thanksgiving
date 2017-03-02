@@ -1,8 +1,8 @@
 module FeatureHelpers
   def login_new_user(options = {})
     visit "/"
-    within(:css, ".super-button") do
-     click_link "Sign in or sign up"
+    within(".super-button") do
+      click_link "Sign in or sign up"
     end
     user = User.last
     user.admin = options[:admin] || false
