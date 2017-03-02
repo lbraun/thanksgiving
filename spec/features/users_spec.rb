@@ -12,23 +12,22 @@ feature "user management" do
       expect(page).to have_table("users_table")
     end
 
-    it "sees a table with proper headers and rows" do
-      expect(page).to have_css("#user_#{admin.id}", :text => "#{admin.name}")
-      expect(page).to have_css("#user_#{admin.id}", :text => "#{admin.created_at_string}")
-      expect(page).to have_css("#user_#{admin.id}", :text => "#{admin.approval_at_string}")
-      expect(page).to have_css("#user_#{admin.id}", :text => "Delete")
-      expect(page).to have_css("#user_#{admin.id}", :text => "Yes")
-      expect(page).to_not have_css("#user_#{admin.id}", :text => "No")
+    it "sees a table with proper headers and admin row data" do
+      page.find("#user_#{admin.id} td:nth-of-type(1)", :text => admin.name)
+      page.find("#user_#{admin.id} td:nth-of-type(2)", :text => admin.created_at_string)
+      page.find("#user_#{admin.id} td:nth-of-type(3)", :text => "Yes")
+      page.find("#user_#{admin.id} td:nth-of-type(4)", :text => admin.approval_at_string)
+      page.find("#user_#{admin.id} td:nth-of-type(5)", :text => "Yes")
+      page.find("#user_#{admin.id} td:nth-of-type(6)", :text => "Delete")
     end
 
-    it "sees a table with proper headers and rows" do
-      expect(page).to have_css("#user_#{users.first.id}", :text => users.first.name)
-      expect(page).to have_css("#user_#{users.first.id}", :text => users.first.created_at_string)
-      expect(page).to have_css("#user_#{users.first.id}", :text => users.first.approval_at_string)
-      expect(page).to have_link("Yes", :href => remove_approval_user_path(users.first.id))
-      expect(page).to_not have_link("No", :href => approve_user_path(users.first.id))
-      expect(page).to have_link("No", :href => toggle_admin_user_path(users.first.id))
-      expect(page).to_not have_link("Yes", :href => toggle_admin_user_path(users.first.id))
+    it "sees a table with proper headers and user row data" do
+      page.find("#user_#{users.first.id} td:nth-of-type(1)", :text => users.first.name)
+      page.find("#user_#{users.first.id} td:nth-of-type(2)", :text => users.first.created_at_string)
+      page.find("#user_#{users.first.id} td:nth-of-type(3)", :text => "Yes")
+      page.find("#user_#{users.first.id} td:nth-of-type(4)", :text => users.first.approval_at_string)
+      page.find("#user_#{users.first.id} td:nth-of-type(5)", :text => "No")
+      page.find("#user_#{users.first.id} td:nth-of-type(6)", :text => "Delete")
     end
 
     context "and admin clicks No for user approval" do

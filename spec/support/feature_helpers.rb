@@ -24,7 +24,7 @@ module FeatureHelpers
         end
       end
 
-      within(:row_for, subject) do
+      within(:row_for, headers_and_values_hash) do
         headers_and_values_hash.each do |header, value|
           expect({ header => find(:value_under_header, header).text }).to eq({ header => value })
         end
