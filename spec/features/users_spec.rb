@@ -12,7 +12,7 @@ feature "user management" do
       expect(page).to have_table("users_table")
     end
 
-    it "sees a table with proper headers and admin row data" do
+    it "displays a table with proper headers and admin row data" do
       page.find("#user_#{admin.id} td:nth-of-type(1)", text: admin.name)
       page.find("#user_#{admin.id} td:nth-of-type(2)", text: admin.created_at_string)
       page.find("#user_#{admin.id} td:nth-of-type(3)", text: "Yes")
@@ -21,7 +21,7 @@ feature "user management" do
       page.find("#user_#{admin.id} td:nth-of-type(6)", text: "Delete")
     end
 
-    it "sees a table with proper headers and user row data" do
+    it "displays a table with proper headers and user row data" do
       page.find("#user_#{users.first.id} td:nth-of-type(1)", text: users.first.name)
       page.find("#user_#{users.first.id} td:nth-of-type(2)", text: users.first.created_at_string)
       page.find("#user_#{users.first.id} td:nth-of-type(3)", text: "Yes")
