@@ -1,4 +1,4 @@
-feature "Donation show" do
+feature "donation show page" do
   context "when a user visits a donation show page" do
     let!(:current_user) { login_new_user }
 
@@ -33,7 +33,7 @@ feature "Donation show" do
   end
 end
 
-feature "Donation index" do
+feature "donation index page" do
   context "when a user visits the primary donation index" do
     let!(:current_user) { login_new_user }
 
@@ -88,7 +88,7 @@ feature "Donation index" do
       let(:donation_year) { 2001 }
 
       it "shows an appropriate message" do
-        expect(find("#donations_table")).to have_content no_records_message
+        expect(find("#donations_table_container")).to have_content no_records_message
       end
     end
 
@@ -99,7 +99,7 @@ feature "Donation index" do
         let(:user) { User.create! }
 
         it "shows an appropriate message" do
-          expect(find("#donations_table")).to have_content no_records_message
+          expect(find("#donations_table_container")).to have_content no_records_message
         end
       end
 
