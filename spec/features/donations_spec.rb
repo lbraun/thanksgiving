@@ -12,14 +12,13 @@ feature "donation show page" do
       )
     end
 
-    before { visit polymorphic_path(subject) }
+    let(:show_path) { polymorphic_path(subject) }
 
     context "and the donation was not made by the current user" do
       let(:user) { User.create! }
 
       it "returns a 404 not found page" do
-        pending 'not yet implemented'
-        expect(page).to have_content("404 not found")
+        expect { visit show_path }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
@@ -27,6 +26,7 @@ feature "donation show page" do
       let(:user) { current_user }
 
       it "shows the status of the donation" do
+        visit show_path
         expect(page).to have_content "Planned"
       end
     end

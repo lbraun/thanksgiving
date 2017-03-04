@@ -69,12 +69,14 @@ feature "recipient index page" do
 
     context "and a recipient exists" do
       let!(:recipient) do
-        Recipient.create!
+        Recipient.create!(name: "A Test Recipient")
       end
 
       before { visit index_path }
 
-      it "displays the recipient in the index"
+      it "lists the recipient in a table" do
+        expect(find("#recipients_table")).to have_content("A Test Recipient")
+      end
     end
   end
 end
