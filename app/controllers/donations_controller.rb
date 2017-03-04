@@ -6,9 +6,12 @@ class DonationsController < ApplicationController
   def index
     @donations = Donation.where(user: current_user).order(date: :desc)
 
-    if params[:year]
-      sql = "'#{params[:year]}-01-01' <= date AND date <= '#{params[:year]}-12-31'"
-      @donations = @donations.where(sql)
+    if params[:year] && params[:year] =~ /\A\d+\z/
+      start_of_year = Date.new(params[:year].to_i)
+      end_of_year = start_of_year.end_of_year
+      @donations = @donations.where(date: start_of_year..end_of_year)
+    else
+      params.delete(:year)
     end
   end
 
