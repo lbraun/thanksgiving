@@ -31,4 +31,8 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def render_404
+    raise ActiveRecord::RecordNotFound
+  end
 end

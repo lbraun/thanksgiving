@@ -3,7 +3,7 @@
 <% if params[:year] %>
   <%= render 'year_index', donations: @donations, year: params[:year] %>
 <% else %>
-  <%= render 'index' %>
+  <%= render 'index', donations: @donations %>
 <% end %>
 
 <br>

@@ -10,7 +10,7 @@ class RecipientsController < ApplicationController
   # GET /recipients/1
   # GET /recipients/1.json
   def show
-    @donations = Donation.where(recipient: @recipient).order(date: :desc)
+    @donations = @recipient.donations.where(user: current_user).order(date: :desc)
   end
 
   # GET /recipients/new
