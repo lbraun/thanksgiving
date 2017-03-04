@@ -1,4 +1,5 @@
-# README
+# Thanksgiving
+[![Build Status](https://travis-ci.org/lbraun/thanksgiving.png)](https://travis-ci.org/lbraun/thanksgiving)
 
 Thanksgiving is a simple app for tracking personal philanthropy.
 
@@ -19,7 +20,7 @@ For information on how to set up the app locally, please see the [Getting Starte
 
 ## Deploying
 
-Consider downloading the Heroku CLI
+If you haven't already, download the Heroku command line interface (CLI)
 ```
 brew install heroku
 ```
