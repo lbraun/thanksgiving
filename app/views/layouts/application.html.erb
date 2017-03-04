@@ -13,14 +13,16 @@
   </head>
 
   <body>
-    <header class="row">
-      <%= render 'layouts/navigation' %>
-    </header>
+    <%= render 'layouts/top_bar' %>
 
-    <main class="row">
-      <div class="large-8 columns">
-        <%= yield %>
+    <main class="main-content">
+      <div class="row">
+        <div class="small-12 columns">
+          <%= yield %>
+        </div>
       </div>
     </main>
+
+    <%= render 'layouts/bottom_bar' %>
   </body>
 </html>

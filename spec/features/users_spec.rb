@@ -16,9 +16,10 @@ feature "User management" do
         "users_table", {
           "Name" => "Example User",
           "Created At" => subject.created_at_string,
+          "Approved" => "Yes",
           "Approval At" => subject.approval_at_string,
-          "Admin" => "true",
-          "Actions" => "Remove Approval Delete",
+          "Admin" => "Yes",
+          "Actions" => "Delete",
         }
       )
     end
@@ -33,17 +34,20 @@ feature "User management" do
           "users_table", {
             "Name" => "Joe",
             "Created At" => subject.created_at_string,
+            "Approved" => "No",
             "Approval At" => "",
-            "Admin" => "",
-            "Actions" => "Approve Delete",
+            "Admin" => "No",
+            "Actions" => "Delete",
           }
         )
       end
 
       context "and the current user clicks the approve link for that user" do
+        let(:approve_link) { ["No", href: approve_user_path(subject)] }
+
         before do
           within(:row_for, subject) do
-            click_link "Approve"
+            click_link(*approve_link)
           end
         end
 
@@ -59,14 +63,14 @@ feature "User management" do
 
         it "no longer shows the approve link" do
           within(:row_for, subject) do
-            expect(find(:value_under_header, "Actions").text).to eq "Remove Approval Delete"
+            expect(page).to_not have_link(*approve_link)
           end
         end
 
         context "and the current user clicks the Remove Approval link for that user" do
           before do
             within(:row_for, subject) do
-              click_link "Remove Approval"
+              click_link("Yes", href: remove_approval_user_path(subject))
             end
           end
 

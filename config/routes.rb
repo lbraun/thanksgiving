@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :destroy] do
     get :approve, on: :member
     get :remove_approval, on: :member
+    get :toggle_admin, on: :member
   end
 end

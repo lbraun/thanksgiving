@@ -1,17 +1,35 @@
-<h1>Welcome to thanksgiving!</h1>
-<% if current_user.present? %>
-  <% if current_user.approved? %>
-    <h3>What would you like to see?</h3>
-    <ul>
-      <li><%= link_to('Donations', [:donations]) %></li>
-      <li><%= link_to('Recipients', [:recipients]) %></li>
-      <% if current_user.admin? %>
-        <li><%= link_to('Users', [:users]) %></li>
+<div class="row">
+  <div class="small-12 large-6 large-centered columns text-center">
+    <div class="super-title">Thanksgiving</div>
+
+    <div class="sub-super-title">
+      What have you given today?
+    </div>
+
+    <% if current_user.present? %>
+      <% if current_user.approved? %>
+        <div class="super-button">
+          <%= link_to "Record a donation", new_donation_path, class: "button" %>
+        </div>
+
+        <div class="super-links">
+          <%= link_to("Donations", [:donations]) %>
+          | <%= link_to("Recipients", [:recipients]) %>
+
+          <% if current_user.admin? %>
+            | <%= link_to("Users", [:users]) %>
+          <% end %>
+        </div>
+      <% else %>
+        <div data-alert class="alert-box warning round super-button">
+          Your account must be approved before you can access the app.
+          <a href="#" class="close">&times;</a>
+        </div>
       <% end %>
-    </ul>
-  <% else %>
-    <p>Your account must be approved before you can access the app.</p>
-  <% end %>
-<% else %>
-  <p>Please sign in.</p>
-<% end %>
+    <% else %>
+      <div class="super-button">
+        <%= link_to "Sign in or sign up", "/auth/google_oauth2", class: "button", id: "sign_in" %>
+      </div>
+    <% end %>
+  </div>
+</div>

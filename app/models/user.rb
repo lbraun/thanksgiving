@@ -7,6 +7,18 @@ class User < ActiveRecord::Base
     created_at.to_s(:long)
   end
 
+  def admin_string
+    admin? ? "Yes" : "No"
+  end
+
+  def admin_button_class
+    admin? ? "success" : "secondary"
+  end
+
+  def approved?
+    approval_at.present?
+  end
+
   def approve
     self.approval_at = Time.now
     save!
@@ -17,12 +29,9 @@ class User < ActiveRecord::Base
     save!
   end
 
-  def approved?
-    approval_at.present?
-  end
-
-  def admin?
-    self.admin
+  def toggle_admin
+    self.admin = !admin
+    save!
   end
 
   def self.from_omniauth(auth)
