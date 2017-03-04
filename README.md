@@ -8,6 +8,8 @@ See the app's [waffle.io page](https://waffle.io/lbraun/thanksgiving) for issues
 
 [![Stories in Ready](https://badge.waffle.io/lbraun/thanksgiving.png?label=ready&title=Ready)](https://waffle.io/lbraun/thanksgiving)
 
+For better integration with waffle.io, name all branches using the relevant isssue number, for example for issue number 1234 about a bug when logging in, name your branch `1234-fix-login-bug`.
+
 Please read our [contributor covenant](https://github.com/lbraun/thanksgiving/blob/master/contributor_covenant.md) before getting started. Thank you!
 
 ## Installation
@@ -17,18 +19,3 @@ For information on how to set up the app locally, please see the [Getting Starte
 - Ruby: https://github.com/bbatsov/ruby-style-guide
 - RSpec: https://github.com/reachlocal/rspec-style-guide
 - Commit messages: http://chris.beams.io/posts/git-commit/#seven-rules
-
-## Deploying
-
-If you haven't already, download the Heroku command line interface (CLI)
-```
-brew install heroku
-```
-From the repo run `heroku create` followed by `git push heroku master`.
-
-_See https://devcenter.heroku.com/articles/git#deploying-code for more information._
-
-## Running the Heroku Rails console
-From the repo run `heroku run rails console`.
-
-_See https://devcenter.heroku.com/articles/getting-started-with-rails4#console for more information._
