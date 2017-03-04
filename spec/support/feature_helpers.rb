@@ -1,7 +1,9 @@
 module FeatureHelpers
   def login_new_user(options = {})
     visit "/"
-    click_link "Sign in"
+    within(".super-button") do
+      click_link "Sign in or sign up"
+    end
     user = User.last
     user.admin = options[:admin] || false
     user.approval_at = options[:approval_at] || Time.now
@@ -22,7 +24,7 @@ module FeatureHelpers
         end
       end
 
-      within(:row_for, subject) do
+      within(:row_for, headers_and_values_hash) do
         headers_and_values_hash.each do |header, value|
           expect({ header => find(:value_under_header, header).text }).to eq({ header => value })
         end
