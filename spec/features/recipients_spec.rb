@@ -77,6 +77,30 @@ feature "recipient index page" do
       it "lists the recipient in a table" do
         expect(find("#recipients_table")).to have_content("A Test Recipient")
       end
+
+      context "and the recipient is destroyable" do
+        it "shows a link to destroy the recipient" do
+          expect(find("#recipients_table")).to have_link(I18n.t("defaults.destroy_link"))
+        end
+      end
+
+      context "and the recipient is not destroyable" do
+        let!(:donation) do
+          Donation.create!(
+            amount: 1,
+            date: Date.parse("2000-01-01"),
+            recipient: recipient,
+            status: "planned",
+            user: current_user,
+          )
+        end
+
+        before { visit index_path }
+
+        it "does not show a link to destroy the recipient" do
+          expect(find("#recipients_table")).to_not have_link(I18n.t("defaults.destroy_link"))
+        end
+      end
     end
   end
 end
