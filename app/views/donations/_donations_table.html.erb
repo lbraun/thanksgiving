@@ -18,9 +18,9 @@
             <td><%= link_to donation.recipient, donation.recipient %></td>
             <td class="accounting"><%= display_currency donation.amount %></td>
             <td><%= donation.status %></td>
-            <td><%= link_to "Show", donation %></td>
-            <td><%= link_to "Edit", edit_donation_path(donation) %></td>
-            <td><%= link_to "Destroy", donation, method: :delete, data: { confirm: "Are you sure?" } %></td>
+            <td><%= link_to t("defaults.show_link"), donation %></td>
+            <td><%= link_to t("defaults.edit_link"), edit_donation_path(donation) %></td>
+            <td><%= link_to t("defaults.destroy_link"), donation, method: :delete, data: { confirm: t("defaults.destroy_confirm") } %></td>
           </tr>
         <% end %>
         <tr>

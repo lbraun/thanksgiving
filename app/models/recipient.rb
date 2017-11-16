@@ -20,4 +20,8 @@ class Recipient < ActiveRecord::Base
   def categories_string
     category_records.map { |cr| colorize_category(cr.category) }.join(' ').html_safe
   end
+
+  def destroyable?
+    donations.empty?
+  end
 end

@@ -15,9 +15,11 @@
         <tr>
           <td><%= link_to recipient.name, recipient %></td>
           <td><%= number_to_currency recipient.total_donations %></td>
-          <td><%= link_to "Show", recipient %></td>
-          <td><%= link_to "Edit", edit_recipient_path(recipient) %></td>
-          <td><%= link_to "Destroy", recipient, method: :delete, data: { confirm: "Are you sure?" } %></td>
+          <td><%= link_to t("defaults.show_link"), recipient %></td>
+          <td><%= link_to t("defaults.edit_link"), edit_recipient_path(recipient) %></td>
+          <% if recipient.destroyable? %>
+            <td><%= link_to t("defaults.destroy_link"), recipient, method: :delete, data: { confirm: t("defaults.destroy_confirm") } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -28,4 +30,4 @@
 
 <br>
 
-<%= link_to "New Recipient", new_recipient_path, class: "button" %>
+<%= link_to t("defaults.new_link", model: "Recipient"), new_recipient_path, class: "button" %>
