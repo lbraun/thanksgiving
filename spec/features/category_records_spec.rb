@@ -27,7 +27,7 @@ feature "Category record creation" do
       context "and the user fills out and submits the form" do
         before do
           fill_in "category_record_category", with: "Test Category"
-          click_button I18n.t("helpers.submit.create", model: CategoryRecord.model_name.human)
+          click_button I18n.t("helpers.submit.create", model: "Category")
         end
 
         it "adds a new category record to the recipient" do

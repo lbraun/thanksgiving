@@ -11,50 +11,45 @@
     </div>
   <% end %>
 
-  <div class="grid-x">
-    <div class="small-3 cell">
-      <%= f.label :amount, class: "right inline" %>
-    </div>
-    <div class="small-6 cell end">
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.label :amount %>
       <%= f.text_field :amount %>
     </div>
   </div>
 
-  <div class="grid-x">
-    <div class="small-3 cell">
-      <%= f.label :recipient_id, class: "right inline" %>
-    </div>
+  <div class="grid-x grid-margin-x">
     <div class="small-6 cell">
-      <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
-    </div>
-    <div class="small-3 cell">
-      <%= link_to 'Add new recipient', new_recipient_path, class: "button tiny" %>
+      <%= f.label :recipient_id %>
     </div>
   </div>
 
-  <div class="grid-x">
-    <div class="small-3 cell">
-      <%= f.label :date, class: "right inline" %>
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
     </div>
-    <div class="small-6 cell end">
+    <div class="small-6 cell">
+      <%= link_to 'Add new recipient', new_recipient_path, class: "button warning right" %>
+    </div>
+  </div>
+
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.label :date %>
       <%= f.date_field :date %>
     </div>
   </div>
 
-  <div class="grid-x">
-    <div class="small-3 cell">
-      <%= f.label :method, class: "right inline" %>
-    </div>
-    <div class="small-6 cell end">
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.label :method %>
       <%= f.select :method, Donation.method_select_options %>
     </div>
   </div>
 
-  <div class="grid-x">
-    <div class="small-3 cell">
-      <%= f.label :status, class: "right inline" %>
-    </div>
-    <div class="small-6 cell end">
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.label :status %>
       <%= f.select :status, Donation.status_select_options %>
     </div>
   </div>
