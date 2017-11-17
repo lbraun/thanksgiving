@@ -8,7 +8,7 @@
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -16,8 +16,8 @@
     <%= render 'layouts/top_bar' %>
 
     <main class="main-content">
-      <div class="row">
-        <div class="small-12 columns">
+      <div class="grid-x grid-padding-x">
+        <div class="small-12 cell">
           <%= yield %>
         </div>
       </div>

@@ -11,50 +11,50 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="small-3 columns">
+  <div class="grid-x">
+    <div class="small-3 cell">
       <%= f.label :amount, class: "right inline" %>
     </div>
-    <div class="small-6 columns end">
+    <div class="small-6 cell end">
       <%= f.text_field :amount %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="small-3 columns">
+  <div class="grid-x">
+    <div class="small-3 cell">
       <%= f.label :recipient_id, class: "right inline" %>
     </div>
-    <div class="small-6 columns">
+    <div class="small-6 cell">
       <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
     </div>
-    <div class="small-3 columns">
+    <div class="small-3 cell">
       <%= link_to 'Add new recipient', new_recipient_path, class: "button tiny" %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="small-3 columns">
+  <div class="grid-x">
+    <div class="small-3 cell">
       <%= f.label :date, class: "right inline" %>
     </div>
-    <div class="small-6 columns end">
+    <div class="small-6 cell end">
       <%= f.date_field :date %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="small-3 columns">
+  <div class="grid-x">
+    <div class="small-3 cell">
       <%= f.label :method, class: "right inline" %>
     </div>
-    <div class="small-6 columns end">
+    <div class="small-6 cell end">
       <%= f.select :method, Donation.method_select_options %>
     </div>
   </div>
 
-  <div class="row">
-    <div class="small-3 columns">
+  <div class="grid-x">
+    <div class="small-3 cell">
       <%= f.label :status, class: "right inline" %>
     </div>
-    <div class="small-6 columns end">
+    <div class="small-6 cell end">
       <%= f.select :status, Donation.status_select_options %>
     </div>
   </div>

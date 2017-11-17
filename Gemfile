@@ -26,7 +26,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'font-awesome-rails'
-# gem 'foundation-rails'
+gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
 
