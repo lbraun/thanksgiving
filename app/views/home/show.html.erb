@@ -1,35 +1,35 @@
-<div class="row">
-  <div class="small-12 large-6 large-centered columns text-center">
-    <div class="super-title">Thanksgiving</div>
+<div class="text-center">
+  <div class="super-title">Thanksgiving</div>
 
-    <div class="sub-super-title">
-      Plan, track, and strengthen your personal philanthropy
-    </div>
+  <div class="sub-super-title">
+    Plan, track, and strengthen your personal philanthropy
+  </div>
 
-    <% if current_user.present? %>
-      <% if current_user.approved? %>
-        <div class="super-button">
-          <%= link_to "Record a donation", new_donation_path, class: "button" %>
-        </div>
-
-        <div class="super-links">
-          <%= link_to("Donations", [:donations]) %>
-          | <%= link_to("Recipients", [:recipients]) %>
-
-          <% if current_user.admin? %>
-            | <%= link_to("Users", [:users]) %>
-          <% end %>
-        </div>
-      <% else %>
-        <div data-alert class="alert-box warning round super-button">
-          Your account must be approved before you can access the app.
-          <a href="#" class="close">&times;</a>
-        </div>
-      <% end %>
-    <% else %>
+  <% if current_user.present? %>
+    <% if current_user.approved? %>
       <div class="super-button">
-        <%= link_to "Sign in or sign up", "/auth/google_oauth2", class: "button", id: "sign_in" %>
+        <%= link_to "Record a donation", new_donation_path, class: "button" %>
+      </div>
+
+      <div class="super-links">
+        <%= link_to("Donations", [:donations]) %>
+        | <%= link_to("Recipients", [:recipients]) %>
+
+        <% if current_user.admin? %>
+          | <%= link_to("Users", [:users]) %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="callout warning" data-closable>
+        <button class="close-button" aria-label="Close alert" type="button" data-close>
+          <span aria-hidden="true">&times;</span>
+        </button>
+        Your account must be approved before you can access the app.
       </div>
     <% end %>
-  </div>
+  <% else %>
+    <div class="super-button">
+      <%= link_to "Sign in or sign up", "/auth/google_oauth2", class: "button", id: "sign_in" %>
+    </div>
+  <% end %>
 </div>

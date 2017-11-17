@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :reasons_for_support %><br>
-    <%= f.text_area :reasons_for_support %>
+
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.label :reasons_for_support %>
+      <%= f.text_area :reasons_for_support %>
+    </div>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "button" %>
   </div>
 <% end %>

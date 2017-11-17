@@ -13,8 +13,10 @@
 
   <%= f.hidden_field :recipient_id, value: @recipient.id %>
 
-  <div class="field">
-    <%= f.text_field :category %>
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
+      <%= f.text_field :category %>
+    </div>
   </div>
 
   <% if CategoryRecord.count > 0 %>
@@ -23,6 +25,6 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t("helpers.submit.create", model: "Category"), class: "button" %>
   </div>
 <% end %>
