@@ -78,8 +78,15 @@ class DonationsController < ApplicationController
     render_404 unless @donation.user == current_user
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def donation_params
-    params.require(:donation).permit(:amount, :recipient_id, :date, :method, :status)
+    donation_params = params.require(:donation).permit(
+      :amount,
+      :recipient_id,
+      :date,
+      :method,
+      :status,
+    )
+    donation_params[:amount] && donation_params[:amount].gsub!("$", "")
+    donation_params
   end
 end
