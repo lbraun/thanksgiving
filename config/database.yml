@@ -3,7 +3,7 @@ default: &default
   encoding: unicode
   pool: 5
   username: <%= ENV['RAILS_POSTGRES_USER'] %>
-  password:
+  password: <%= ENV['RAILS_POSTGRES_PASSWORD'] %>
 
 development:
   <<: *default

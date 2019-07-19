@@ -1,4 +1,4 @@
-class CategoryRecord < ActiveRecord::Base
+class CategoryRecord < ApplicationRecord
   belongs_to :recipient
 
   validates_presence_of :category

@@ -34,13 +34,13 @@ describe UsersController do
 
         it "approves the given user" do
           expect(unapproved_user.approved?).to be false
-          get :approve, id: unapproved_user.id
+          get :approve, params: { id: unapproved_user.id }
 
           expect(unapproved_user.reload.approved?).to be true
         end
 
         it "renders the index template" do
-          get :approve, id: unapproved_user.id
+          get :approve, params: { id: unapproved_user.id }
           expect(response).to redirect_to([:users])
         end
       end
@@ -50,7 +50,7 @@ describe UsersController do
       let!(:current_user) { User.create!(admin: false, approval_at: Time.now) }
 
       it "raises a 404 error" do
-        expect { get :approve, id: 1 }.to raise_error(ActionController::RoutingError, "Not Found")
+        expect { get :approve, params: { id: 1 } }.to raise_error(ActionController::RoutingError, "Not Found")
       end
     end
   end
@@ -64,13 +64,13 @@ describe UsersController do
 
         it "unapproves the given user" do
           expect(approved_user.approved?).to be true
-          get :remove_approval, id: approved_user.id
+          get :remove_approval, params: { id: approved_user.id }
 
           expect(approved_user.reload.approved?).to be false
         end
 
         it "renders the index template" do
-          get :remove_approval, id: approved_user.id
+          get :remove_approval, params: { id: approved_user.id }
           expect(response).to redirect_to([:users])
         end
       end
@@ -80,7 +80,7 @@ describe UsersController do
       let!(:current_user) { User.create!(admin: false, approval_at: Time.now) }
 
       it "raises a 404 error" do
-        expect { get :remove_approval, id: 1 }.to raise_error(ActionController::RoutingError, "Not Found")
+        expect { get :remove_approval, params: { id: 1 } }.to raise_error(ActionController::RoutingError, "Not Found")
       end
     end
   end
@@ -93,12 +93,12 @@ describe UsersController do
         let(:user) { User.create! }
 
         it "destroys the given user" do
-          delete :destroy, id: user.id
+          delete :destroy, params: { id: user.id }
           expect(User.find_by_id(user.id)).to be_nil
         end
 
         it "renders the index template" do
-          delete :destroy, id: user.id
+          delete :destroy, params: { id: user.id }
           expect(response).to redirect_to([:users])
         end
       end
@@ -108,7 +108,7 @@ describe UsersController do
       let!(:current_user) { User.create!(admin: false, approval_at: Time.now) }
 
       it "raises a 404 error" do
-        expect { delete :destroy, id: 1 }.to raise_error(ActionController::RoutingError, "Not Found")
+        expect { delete :destroy, params: { id: 1 } }.to raise_error(ActionController::RoutingError, "Not Found")
       end
     end
   end

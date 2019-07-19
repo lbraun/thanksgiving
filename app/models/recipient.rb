@@ -1,4 +1,4 @@
-class Recipient < ActiveRecord::Base
+class Recipient < ApplicationRecord
 	has_many :donations
   has_many :category_records
 

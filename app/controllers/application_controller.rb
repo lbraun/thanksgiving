@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   # Basic HTTP authentication
-  # before_filter :authenticate
+  # before_action :authenticate
 
   # Google oauth
-  before_filter :authenticate_user
+  before_action :authenticate_user
 
   def current_user
     @current_user ||= User.find(session[:user_id]) rescue nil

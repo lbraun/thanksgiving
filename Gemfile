@@ -1,23 +1,14 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.6.3'
 
-gem 'rails', '~> 4.2.10'
+gem 'rails', '~> 5.2.3'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -29,6 +20,7 @@ gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
+gem 'record_tag_helper', '~> 1.0'
 
 group :production do
   gem 'rails_12factor'
@@ -39,4 +31,8 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'rspec-rails'
+end
+
+group :test do
+  gem 'rails-controller-testing'
 end

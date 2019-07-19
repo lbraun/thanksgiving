@@ -17,6 +17,12 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 
+  Capybara.configure do |config|
+    # config.default_max_wait_time = 10 #seconds
+    # Capybara.default_driver = :selenium # :selenium_chrome and :selenium_chrome_headless are also registered
+    # config.always_include_port = true
+  end
+
   config.include ControllerHelpers, type: :controller
   config.include FeatureHelpers, type: :feature
 end

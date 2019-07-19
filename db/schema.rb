@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,46 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170124212449) do
+ActiveRecord::Schema.define(version: 2017_01_24_212449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "category_records", force: true do |t|
-    t.integer  "recipient_id"
-    t.string   "category"
+  create_table "category_records", id: :serial, force: :cascade do |t|
+    t.integer "recipient_id"
+    t.string "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "donations", force: true do |t|
-    t.decimal  "amount"
-    t.integer  "recipient_id"
-    t.date     "date"
-    t.string   "method"
+  create_table "donations", id: :serial, force: :cascade do |t|
+    t.decimal "amount"
+    t.integer "recipient_id"
+    t.date "date"
+    t.string "method"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
-    t.integer  "user_id"
+    t.string "status"
+    t.integer "user_id"
   end
 
-  create_table "recipients", force: true do |t|
-    t.string   "name"
+  create_table "recipients", id: :serial, force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "reasons_for_support"
+    t.text "reasons_for_support"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.string   "oauth_token"
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "oauth_token"
     t.datetime "oauth_expires_at"
     t.datetime "approval_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin"
+    t.boolean "admin"
   end
 
 end

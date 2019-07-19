@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   def approval_at_string
     approval_at && approval_at.to_s(:long)
   end

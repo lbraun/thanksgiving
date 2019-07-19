@@ -1,4 +1,4 @@
-class Donation < ActiveRecord::Base
+class Donation < ApplicationRecord
   belongs_to :recipient
   belongs_to :user
 
