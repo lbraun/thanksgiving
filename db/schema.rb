@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 20170124212449) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "category_records", force: true do |t|
+  create_table "category_records", force: :cascade do |t|
     t.integer  "recipient_id"
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "donations", force: true do |t|
+  create_table "donations", force: :cascade do |t|
     t.decimal  "amount"
     t.integer  "recipient_id"
     t.date     "date"
@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 20170124212449) do
     t.integer  "user_id"
   end
 
-  create_table "recipients", force: true do |t|
+  create_table "recipients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "reasons_for_support"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
