@@ -86,7 +86,7 @@ class DonationsController < ApplicationController
       :method,
       :status,
     )
-    donation_params[:amount]&.gsub!("$", "")
+    donation_params[:amount] && donation_params[:amount].gsub!("$", "")
     donation_params
   end
 end
