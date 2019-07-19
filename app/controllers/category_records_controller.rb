@@ -1,5 +1,5 @@
 class CategoryRecordsController < ApplicationController
-  before_filter :load_parents
+  before_action :load_parents
   before_action :set_category_record, only: [:show, :edit, :update, :destroy]
 
   # GET /category_records
