@@ -136,7 +136,7 @@ feature "Donation creation" do
 
         context "and the user fills out and submits the form" do
           before do
-            fill_in "donation_amount", with: "100"
+            fill_in "donation_amount", with: "$100.00"
             select recipient.name, from: "donation_recipient_id"
             fill_in "donation_date", with: "2000-01-01"
             select "Cash", from: "donation_method"
