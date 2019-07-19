@@ -1,4 +1,4 @@
-class CreateCategoryRecords < ActiveRecord::Migration
+class CreateCategoryRecords < ActiveRecord::Migration[4.2]
   def change
     create_table :category_records do |t|
       t.integer :recipient_id
