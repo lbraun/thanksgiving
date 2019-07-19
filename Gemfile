@@ -23,11 +23,8 @@ gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
+gem 'puma'
 gem 'record_tag_helper', '~> 1.0'
-
-group :production do
-  gem 'rails_12factor'
-end
 
 group :development, :test do
   gem 'byebug'
