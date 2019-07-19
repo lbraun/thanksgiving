@@ -25,5 +25,7 @@ module Thanksgiving
 
     # Load locale files in nested dictionaries
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
+    config.generators.javascript_engine = :js
   end
 end
