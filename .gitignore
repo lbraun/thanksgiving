@@ -17,3 +17,6 @@
 
 # Ignore byebug history
 /.byebug_history
+
+# Ignore sensitive environment variables
+.env.local

@@ -32,6 +32,7 @@ gem 'record_tag_helper', '~> 1.0'
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
+  gem 'dotenv-rails'
   gem 'launchy'
   gem 'listen'
   gem 'rspec-rails'
