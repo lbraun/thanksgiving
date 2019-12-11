@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug'
   gem 'capybara'
   gem 'launchy'
+  gem 'listen'
   gem 'rspec-rails'
 end
 
