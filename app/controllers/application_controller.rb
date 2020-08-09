@@ -27,8 +27,12 @@ class ApplicationController < ActionController::Base
         redirect_to root_path
       end
     else
-      flash.alert = "Please sign in to continue"
-      redirect_to root_path
+      if Rails.env.development?
+        @current_user = User.first
+      else
+        flash.alert = "Please sign in to continue"
+        redirect_to root_path
+      end
     end
   end
 

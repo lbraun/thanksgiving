@@ -8,6 +8,7 @@ class Donation < ApplicationRecord
   VALID_METHODS = %w{
     credit_card
     cash
+    payment_app
     other
   }
 
