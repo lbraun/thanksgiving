@@ -4,7 +4,7 @@ class RecipientsController < ApplicationController
   # GET /recipients
   # GET /recipients.json
   def index
-    @recipients = Recipient.all
+    @recipients = Recipient.all.order(created_at: :desc)
   end
 
   # GET /recipients/1
