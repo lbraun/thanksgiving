@@ -67,7 +67,7 @@ feature "recipient index page" do
       end
     end
 
-    context "and a recipient exists" do
+    context "and one recipient exists" do
       let!(:recipient) do
         Recipient.create!(name: "A Test Recipient")
       end
@@ -101,6 +101,23 @@ feature "recipient index page" do
           expect(find("#recipients_table")).to_not have_link(I18n.t("defaults.destroy_link"))
         end
       end
+    end
+
+    context "and two recipients exist" do
+      let!(:recipient1) do
+        Recipient.create!(name: "A Test Recipient OLDER")
+      end
+
+      let!(:recipient2) do
+        Recipient.create!(name: "A Test Recipient NEWER")
+      end
+
+      before { visit index_path }
+
+      it "lists both recipients in the correct order" do
+        expect(find("#recipients_table")).to have_content(/A Test Recipient NEWER.*A Test Recipient OLDER/)
+      end
+
     end
   end
 end
