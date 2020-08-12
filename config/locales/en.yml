@@ -12,3 +12,19 @@ en:
   recipients:
     show:
       new_category_link: "Add a new category"
+  helpers:
+    label:
+      recipient:
+        reasons_for_support: "Reasons for support"
+  activerecord:
+    attributes:
+      donation:
+        # methods
+        credit_card: "Card"
+        cash: "Cash"
+        payment_app: "Payment app"
+        other: "Other"
+        # statuses
+        planned: "Planned"
+        completed: "Completed"
+        acknowledged: "Acknowledged"
