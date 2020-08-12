@@ -2,53 +2,70 @@ feature "recipient show page" do
   context "when a user visits a recipient show page" do
     let!(:current_user) { login_new_user }
 
-    subject!(:recipient) do
-      Recipient.create!(name: "Test Recipient", url: "http://example.com/")
-    end
+    context "and the recipient has a url" do
 
-    let(:show_path) { polymorphic_path(subject) }
-    before { visit show_path }
-
-    it "displays basic information about the recipient" do
-      expect(page).to have_content("Name: Test Recipient")
-      expect(page).to have_content("URL: http://example.com/")
-    end
-
-    context "and the recipient has not recieved any donations" do
-      it "shows an appropriate message" do
-        expect(page).to have_content I18n.t("defaults.no_records", records: "donations")
-      end
-    end
-
-    context "and the recipient has recieved donations" do
-      let!(:donation) do
-        Donation.create!(
-          amount: 1,
-          date: Date.parse("2000-01-01"),
-          recipient: subject,
-          status: "planned",
-          user: donor,
-        )
+      subject!(:recipient) do
+        Recipient.create!(name: "Test Recipient", url: "http://example.com/")
       end
 
+      let(:show_path) { polymorphic_path(subject) }
       before { visit show_path }
 
-      context "and the donor was the current user" do
-        let(:donor) { current_user }
-
-        it "lists the donations in a table" do
-          within("#donations_table") do
-            expect(page).to have_content("$1")
-          end
-        end
+      it "displays basic information about the recipient" do
+        expect(page).to have_content("Name: Test Recipient\n")
+        expect(page).to have_content("URL: http://example.com/\n")
       end
 
-      context "and the donor was not the current user" do
-        let(:donor) { User.new }
-
+      context "and the recipient has not recieved any donations" do
         it "shows an appropriate message" do
           expect(page).to have_content I18n.t("defaults.no_records", records: "donations")
         end
+      end
+
+      context "and the recipient has recieved donations" do
+        let!(:donation) do
+          Donation.create!(
+            amount: 1,
+            date: Date.parse("2000-01-01"),
+            recipient: subject,
+            status: "planned",
+            user: donor,
+          )
+        end
+
+        before { visit show_path }
+
+        context "and the donor was the current user" do
+          let(:donor) { current_user }
+
+          it "lists the donations in a table" do
+            within("#donations_table") do
+              expect(page).to have_content("$1")
+            end
+          end
+        end
+
+        context "and the donor was not the current user" do
+          let(:donor) { User.new }
+
+          it "shows an appropriate message" do
+            expect(page).to have_content I18n.t("defaults.no_records", records: "donations")
+          end
+        end
+      end
+    end
+
+    context "and the recipient doesn't have a url" do
+      subject!(:recipient) do
+        Recipient.create!(name: "Test Recipient with no URL")
+      end
+
+      let(:show_path) { polymorphic_path(subject) }
+      before { visit show_path }
+
+      it "displays basic information about the recipient without any URL" do
+        expect(page).to have_content("Name: Test Recipient with no URL\n")
+        expect(page).to have_content("URL:\n")
       end
     end
   end
