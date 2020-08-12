@@ -3,7 +3,7 @@ feature "recipient show page" do
     let!(:current_user) { login_new_user }
 
     subject!(:recipient) do
-      Recipient.create!(name: "Test Recipient")
+      Recipient.create!(name: "Test Recipient", url: "http://example.com/")
     end
 
     let(:show_path) { polymorphic_path(subject) }
@@ -11,6 +11,7 @@ feature "recipient show page" do
 
     it "displays basic information about the recipient" do
       expect(page).to have_content("Name: Test Recipient")
+      expect(page).to have_content("URL: http://example.com/")
     end
 
     context "and the recipient has not recieved any donations" do

@@ -20,6 +20,13 @@
 
   <div class="grid-x grid-margin-x">
     <div class="small-6 cell">
+      <%= f.label :url %>
+      <%= f.url_field :url %>
+    </div>
+  </div>
+
+  <div class="grid-x grid-margin-x">
+    <div class="small-6 cell">
       <%= f.label :reasons_for_support %>
       <%= f.text_area :reasons_for_support %>
     </div>
