@@ -6,28 +6,28 @@
 </p>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= Recipient.human_attribute_name(:name) %>:</strong>
   <%= @recipient.name %>
 </p>
 
 <p>
-  <strong>URL:</strong>
+  <strong><%= Recipient.human_attribute_name(:url) %>:</strong>
   <%= link_to @recipient.url, @recipient.url %>
 </p>
 
 <p>
-  <strong>Reasons for Support:</strong>
+  <strong><%= Recipient.human_attribute_name(:reasons_for_support) %>:</strong>
   <%= @recipient.reasons_for_support %>
 </p>
 
 <p>
-  <strong>Categories:</strong>
+  <strong><%= Recipient.human_attribute_name(:categories) %>:</strong>
   <%= colorize_categories(@recipient.category_records) %>
   <%= link_to t(".new_category_link"), [:new, @recipient, :category_record] %>
 </p>
 
 <p>
-  <strong>My Giving History:</strong>
+  <strong><%= t(".donations_table_header") %>:</strong>
 
   <%= render "donations/donations_table", donations: @donations %>
 </p>
