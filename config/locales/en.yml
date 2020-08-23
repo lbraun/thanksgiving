@@ -1,0 +1,28 @@
+en:
+  activerecord:
+    attributes:
+      donation/method:
+        cash: "Cash"
+        credit_card: "Card"
+        other: "Other"
+        payment_app: "Payment app"
+      donation/status:
+        acknowledged: "Acknowledged"
+        completed: "Completed"
+        planned: "Planned"
+      recipient:
+        url: "URL"
+  category_records:
+    form:
+      existing_categories: "Existing categories"
+  defaults:
+    destroy_confirm: "Are you sure?"
+    destroy_link: "Destroy"
+    edit_link: "Edit"
+    new_link: "New %{model}"
+    no_records: "Sorry, there are no %{records} to show here."
+    show_link: "Show"
+  recipients:
+    show:
+      new_category_link: "Add a new category"
+      donations_table_header: "My giving history"
