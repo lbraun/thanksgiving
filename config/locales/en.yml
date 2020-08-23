@@ -12,10 +12,6 @@ en:
   recipients:
     show:
       new_category_link: "Add a new category"
-  helpers:
-    label:
-      recipient:
-        reasons_for_support: "Reasons for support"
   activerecord:
     attributes:
       donation:
