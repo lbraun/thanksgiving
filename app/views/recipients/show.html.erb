@@ -12,7 +12,8 @@
 
 <p>
   <strong>URL:</strong>
-  <%= link_to @recipient.url, @recipient.url %>
+  <%= link_to @recipient.url, @recipient.url if @recipient.url %>
+
 </p>
 
 <p>
