@@ -23,11 +23,15 @@ class Donation < ApplicationRecord
   end
 
   def self.method_select_options
-    VALID_METHODS.map { |method| [Donation.human_attribute_name(method), method] }
+    VALID_METHODS.map do |method|
+      [Donation.human_attribute_name("method.#{method}"), method]
+    end
   end
 
   def self.status_select_options
-    VALID_STATUSES.map { |status| [Donation.human_attribute_name(status), status] }
+    VALID_STATUSES.map do |status|
+      [Donation.human_attribute_name("status.#{status}"), status]
+    end
   end
 
   def completed?
