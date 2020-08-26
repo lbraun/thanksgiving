@@ -51,6 +51,8 @@ en:
   recipients:
     edit:
       title: "Editing recipient"
+    index:
+      title: "Listing recipients"
     show:
       new_category_link: "Add a new category"
       donations_table_header: "My giving history"
