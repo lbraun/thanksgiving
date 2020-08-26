@@ -134,6 +134,11 @@ feature "Donation creation" do
 
         before { visit current_path }
 
+        it "shows the right label for the new recipient button" do
+          new_recipient_button_label = "Add new recipient"
+          expect(find("a.button.warning.right").text).to eq new_recipient_button_label
+        end
+
         context "and the user fills out and submits the form" do
           before do
             fill_in "donation_amount", with: "$100.00"
