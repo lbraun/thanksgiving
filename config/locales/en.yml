@@ -27,7 +27,7 @@ en:
     edit:
       title: "Editing donation"
     form:
-      new_recipient_link: "Add new recipient"
+      new_recipient_button: "Add new recipient"
     index:
       title: "Donations"
       total: "Total"
