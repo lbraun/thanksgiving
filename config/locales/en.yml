@@ -19,6 +19,7 @@ en:
     destroy_confirm: "Are you sure?"
     destroy_link: "Destroy"
     edit_link: "Edit"
+    back_link: "Back"
     new_link: "New %{model}"
     no_records: "Sorry, there are no %{records} to show here."
     show_link: "Show"
