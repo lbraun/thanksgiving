@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-        <th>Recipient</th>
+        <th><%= Donation.human_attribute_name(:recipient) %></th>
         <% this_year = Date.today.year  %>
         <% years = (this_year - 4..this_year) %>
         <% years.each do |year| %>
@@ -28,7 +28,7 @@
       <% end %>
 
       <tr>
-        <td><strong>Total</strong></td>
+        <td><strong><%= t('.total') %></strong></td>
 
         <% years.each do |year| %>
           <td class="accounting"><strong><%= number_to_currency totals[year] %></strong></td>
