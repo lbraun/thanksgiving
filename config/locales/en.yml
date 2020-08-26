@@ -22,11 +22,13 @@ en:
     back_link: "Back"
     new_link: "New %{model}"
     no_records: "Sorry, there are no %{records} to show here."
+    home_link: "Home"
     show_link: "Show"
     donations_link: "Donations"
     recipients_link: "Recipients"
     users_link: "Users"
-
+    sign_out: "Sign out"
+    sign_in_with_google_link: "Sign in with Google"
   donations:
     edit:
       title: "Editing donation"
