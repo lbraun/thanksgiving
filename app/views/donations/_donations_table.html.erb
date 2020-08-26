@@ -3,10 +3,10 @@
     <table id="donations_table">
       <thead>
         <tr>
-          <th>Date</th>
-          <th>Recipient</th>
-          <th>Amount</th>
-          <th>Status</th>
+          <th><%= Donation.human_attribute_name(:date) %></th>
+          <th><%= Donation.human_attribute_name(:recipient) %></th>
+          <th><%= Donation.human_attribute_name(:amount) %></th>
+          <th><%= Donation.human_attribute_name(:status) %></th>
           <th colspan="3"></th>
         </tr>
       </thead>
