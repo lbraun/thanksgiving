@@ -15,6 +15,8 @@ en:
   category_records:
     form:
       existing_categories: "Existing categories"
+    new:
+      title: "New category"
   defaults:
     destroy_confirm: "Are you sure?"
     destroy_link: "Destroy"
