@@ -12,11 +12,11 @@
       </div>
 
       <div class="super-links">
-        <%= link_to( t(".donations"), [:donations]) %>
-        | <%= link_to( t(".recipients"), [:recipients]) %>
+        <%= link_to( t("defaults.donations"), [:donations]) %>
+        | <%= link_to( t("defaults.recipients"), [:recipients]) %>
 
         <% if current_user.admin? %>
-          | <%= link_to( t(".users"), [:users]) %>
+          | <%= link_to( t("defaults.users"), [:users]) %>
         <% end %>
       </div>
     <% else %>
