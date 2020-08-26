@@ -23,6 +23,9 @@ en:
     new_link: "New %{model}"
     no_records: "Sorry, there are no %{records} to show here."
     show_link: "Show"
+  donations:
+    form:
+      new_recipient_link: "Add new recipient"
   recipients:
     show:
       new_category_link: "Add a new category"
