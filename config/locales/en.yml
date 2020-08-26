@@ -27,7 +27,7 @@ en:
     form:
       new_recipient_link: "Add new recipient"
     index:
-      header: "Donations"
+      title: "Donations"
       total: "Total"
     year_index:
       show_more_years_link: "Show more years"

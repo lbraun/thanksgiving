@@ -39,7 +39,7 @@ feature "donation index page" do
 
     let(:index_path) { polymorphic_path(:donations) }
     let(:no_records_message) { I18n.t("defaults.no_records", records: "donations") }
-    let(:header) { I18n.t("donations.index.header") }
+    let(:title) { I18n.t("donations.index.title") }
 
     let!(:donation) do
       Donation.create!(
@@ -56,7 +56,7 @@ feature "donation index page" do
     before { visit index_path }
 
     it "shows the correct header" do
-      expect(find("h1")).to have_content header
+      expect(find("h1")).to have_content title
     end
 
     context "and no donations exist for the current user" do
