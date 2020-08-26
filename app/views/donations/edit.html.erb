@@ -1,6 +1,6 @@
-<h1>Editing donation</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @donation %> |
-<%= link_to 'Back', donations_path %>
+<%= link_to t('defaults.show_link'), @donation %> |
+<%= link_to t('defaults.back_link'), donations_path %>
