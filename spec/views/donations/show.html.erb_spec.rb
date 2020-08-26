@@ -27,5 +27,8 @@ describe 'donations/show' do
     expect(rendered).to match /Date:/
     expect(rendered).to match /Method:/
     expect(rendered).to match /Status:/
+
+    expect(rendered).to match /Back/
+    expect(rendered).to match /Edit/
   end
 end
