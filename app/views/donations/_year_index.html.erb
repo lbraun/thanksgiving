@@ -1,3 +1,3 @@
-<p><%= link_to 'Show more years', donations_path, class: 'button tiny' if params[:year] %></p>
+<p><%= link_to t('.show_more_years_link'), donations_path, class: 'button tiny' if params[:year] %></p>
 
 <%= render "donations_table", donations: donations %>

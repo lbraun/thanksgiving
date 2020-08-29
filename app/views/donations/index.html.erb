@@ -1,4 +1,4 @@
-<h1><%= "#{params[:year]}" if params[:year] %> Donations</h1>
+<h1><%= "#{params[:year]}" if params[:year] %> <%= t('.title') %></h1>
 
 <% if params[:year] %>
   <%= render 'year_index', donations: @donations, year: params[:year] %>

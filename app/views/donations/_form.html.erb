@@ -29,7 +29,7 @@
       <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
     </div>
     <div class="small-6 cell">
-      <%= link_to 'Add new recipient', new_recipient_path, class: "button warning right" %>
+      <%= link_to t('.new_recipient_button'), new_recipient_path, class: "button warning right" %>
     </div>
   </div>
 

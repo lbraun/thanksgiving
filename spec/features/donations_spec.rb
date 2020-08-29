@@ -39,6 +39,7 @@ feature "donation index page" do
 
     let(:index_path) { polymorphic_path(:donations) }
     let(:no_records_message) { I18n.t("defaults.no_records", records: "donations") }
+    let(:title) { I18n.t("donations.index.title") }
 
     let!(:donation) do
       Donation.create!(
@@ -53,6 +54,10 @@ feature "donation index page" do
     let(:user) { current_user }
 
     before { visit index_path }
+
+    it "shows the correct header" do
+      expect(find("h1")).to have_content title
+    end
 
     context "and no donations exist for the current user" do
       let(:user) { User.create! }
@@ -133,6 +138,11 @@ feature "Donation creation" do
         let!(:recipient) { Recipient.create!(name: "Test Recipient") }
 
         before { visit current_path }
+
+        it "shows the right label for the new recipient button" do
+          new_recipient_button_label = "Add new recipient"
+          expect(find("a.button.warning.right").text).to eq new_recipient_button_label
+        end
 
         context "and the user fills out and submits the form" do
           before do

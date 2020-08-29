@@ -1,7 +1,7 @@
 <div class="top-bar">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to t("defaults.home_link"), root_path %></li>
     </ul>
   </div>
   <div class="top-bar-right">
@@ -11,20 +11,20 @@
       <% if current_user %>
         <% if current_user.approved? %>
           <% if current_user.admin? %>
-            <li><%= link_to 'Users', users_path %></li>
+            <li><%= link_to t("defaults.users_link"), users_path %></li>
             <li class="divider"></li>
           <% end %>
 
-          <li><%= link_to 'Donations', donations_path %></li>
+          <li><%= link_to t("defaults.donations_link"), donations_path %></li>
           <li class="divider"></li>
 
-          <li><%= link_to 'Recipients', recipients_path %></li>
+          <li><%= link_to t("defaults.recipients_link"), recipients_path %></li>
           <li class="divider"></li>
         <% end %>
 
-        <li><%= link_to "Sign out #{current_user.name}", signout_path, id: "sign_out" %></li>
+        <li><%= link_to "#{t("defaults.sign_out")} #{current_user.name}", signout_path, id: "sign_out" %></li>
       <% else %>
-        <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
+        <li><%= link_to t("defaults.sign_in_with_google_link"), "/auth/google_oauth2", id: "sign_in" %></li>
       <% end %>
     </ul>
   </div>

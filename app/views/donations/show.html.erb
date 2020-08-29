@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Amount:</strong>
+  <strong><%= Donation.human_attribute_name(:amount) %>:</strong>
   <%= number_to_currency @donation.amount %>
 </p>
 
 <p>
-  <strong>Recipient:</strong>
+  <strong><%= Donation.human_attribute_name(:recipient) %>:</strong>
   <%= @donation.recipient %>
 </p>
 
 <p>
-  <strong>Date:</strong>
+  <strong><%= Donation.human_attribute_name(:date) %>:</strong>
   <%= @donation.date.to_s(:long) %>
 </p>
 
 <p>
-  <strong>Method:</strong>
+  <strong><%= Donation.human_attribute_name(:method) %>:</strong>
   <%= @donation.method.try(:humanize) %>
 </p>
 
 <p>
-  <strong>Status:</strong>
+  <strong><%= Donation.human_attribute_name(:status) %>:</strong>
   <%= @donation.status.humanize %>
 </p>
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+<%= link_to t("defaults.edit_link"), edit_donation_path(@donation) %> |
+<%= link_to t("defaults.back_link"), donations_path %>

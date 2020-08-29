@@ -15,5 +15,8 @@ describe 'recipients/show' do
     expect(rendered).to match /Reasons for support:/
     expect(rendered).to match /URL:/
     expect(rendered).to match /My giving history:/
+
+    expect(rendered).to match /Back/
+    expect(rendered).to match /Edit/
   end
 end
