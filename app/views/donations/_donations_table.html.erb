@@ -20,7 +20,7 @@
             <td><%= donation.status %></td>
             <td><%= link_to t("defaults.show_link"), donation %></td>
             <td><%= link_to t("defaults.edit_link"), edit_donation_path(donation) %></td>
-            <td><%= link_to t("defaults.destroy_link"), donation, method: :delete, data: { confirm: t("defaults.destroy_confirm") } %></td>
+            <td><%= link_to "Plump Geese", donation, method: :delete, data: { confirm: t("defaults.destroy_confirm") } %></td>
           </tr>
         <% end %>
         <tr>
