@@ -17,9 +17,11 @@
           <td><%= number_to_currency recipient.total_donations %></td>
           <td><%= link_to t("defaults.show_link"), recipient %></td>
           <td><%= link_to t("defaults.edit_link"), edit_recipient_path(recipient) %></td>
-          <% if recipient.destroyable? %>
-            <td><%= link_to t("defaults.destroy_link"), recipient, method: :delete, data: { confirm: t("defaults.destroy_confirm") } %></td>
-          <% end %>
+          <td>
+            <% if recipient.destroyable? %>
+              <%= link_to t("defaults.destroy_link"), recipient, method: :delete, data: { confirm: t("defaults.destroy_confirm") } %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </tbody>
