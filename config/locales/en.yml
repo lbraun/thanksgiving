@@ -19,7 +19,7 @@ en:
       title: "New category"
   defaults:
     destroy_confirm: "Are you sure?"
-    destroy_link: "Destroy"
+    destroy_link: "Delete"
     edit_link: "Edit"
     back_link: "Back"
     new_link: "New %{model}"
