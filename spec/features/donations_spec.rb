@@ -117,7 +117,7 @@ feature "donation index page" do
         end
 
         it "shows information about the donation in the first row of the table" do
-          donation_information = "January 01, 2000 Test Recipient $1,234.00 planned Show Edit Destroy"
+          donation_information = "January 01, 2000 Test Recipient $1,234.00 planned Show Edit Delete"
           expect(find("tbody > tr:nth-child(1)").text).to eq donation_information
         end
       end
