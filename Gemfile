@@ -28,6 +28,7 @@ gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
 gem 'puma'
 gem 'record_tag_helper', '~> 1.0'
+gem 'twitter-typeahead-rails'
 
 group :development, :test do
   gem 'byebug'

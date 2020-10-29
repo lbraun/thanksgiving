@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require foundation
+//= require twitter/typeahead
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
