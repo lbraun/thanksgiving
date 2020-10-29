@@ -2,7 +2,7 @@ class Recipient < ApplicationRecord
 	has_many :donations
   has_many :category_records
 
-  validates_presence_of :name
+  validates :name, presence: true, uniqueness: true
 
   def to_s
     name
@@ -24,4 +24,15 @@ class Recipient < ApplicationRecord
   def destroyable?
     donations.empty?
   end
+
+  def self.serialized_for_api
+    all.map do |recipient|
+      {
+        id: recipient.id,
+        name: recipient.name,
+      }
+    end
+  end
 end
+
+

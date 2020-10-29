@@ -1,31 +1,19 @@
 // Twitter typeahead example.
 
-// instantiate the bloodhound suggestion engine
-var numbers = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('num'),
+// Instantiate the bloodhound suggestion engine
+var recipients = new Bloodhound({
   queryTokenizer: Bloodhound.tokenizers.whitespace,
-  local: [
-    { num: 'one' },
-    { num: 'two' },
-    { num: 'three' },
-    { num: 'four' },
-    { num: 'five' },
-    { num: 'six' },
-    { num: 'seven' },
-    { num: 'eight' },
-    { num: 'nine' },
-    { num: 'ten' }
-  ]
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+  prefetch: '../../api/recipients.json' // Relative path, will not work on some pages
 })
 
-// initialize the bloodhound suggestion engine
-numbers.initialize();
+// Initialize the bloodhound suggestion engine
+recipients.initialize();
 
-// instantiate the typeahead UI
-function instantiateTypeahead() {
-  console.log("Instatiating :))))")
+// Instantiate the typeahead UI
+function instantiateRecipientsTypeahead() {
   $('.typeahead').typeahead(null, {
-    displayKey: 'num',
-    source: numbers.ttAdapter()
+    displayKey: 'name',
+    source: recipients.ttAdapter()
   })
 }

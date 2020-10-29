@@ -21,8 +21,11 @@
   <div class="grid-x grid-margin-x">
     <div class="small-6 cell">
       <%= f.label :recipient_id %>
-      <%= f.text_field :recipient_id, class: "typeahead", onload: 'instantiateTypeahead()' %> # FIXME: doesn't work
+      <%= f.text_field :recipient_id, class: "typeahead" %>
+      <br>
+      FIXME: add in CSS to make this pretty, hook up ids
     </div>
+    <script>instantiateRecipientsTypeahead();</script>
   </div>
 
   <div class="grid-x grid-margin-x">
