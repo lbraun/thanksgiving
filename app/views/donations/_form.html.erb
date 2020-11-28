@@ -22,25 +22,8 @@
     <div class="small-6 cell">
       <%= f.label :recipient_id %>
       <%= f.text_field :recipient_id, class: "typeahead" %>
-      <br>
-      FIXME: add in CSS to make this pretty, hook up ids
     </div>
     <script>instantiateRecipientsTypeahead();</script>
-  </div>
-
-  <div class="grid-x grid-margin-x">
-    <div class="small-6 cell">
-      <%= f.label :recipient_id %>
-    </div>
-  </div>
-
-  <div class="grid-x grid-margin-x">
-    <div class="small-6 cell">
-      <%= f.select :recipient_id, Recipient.all.map { |r| [r.to_s, r.id] } %>
-    </div>
-    <div class="small-6 cell">
-      <%= link_to t('.new_recipient_button'), new_recipient_path, class: "button warning right" %>
-    </div>
   </div>
 
   <div class="grid-x grid-margin-x">
