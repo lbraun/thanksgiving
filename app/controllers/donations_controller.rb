@@ -81,12 +81,12 @@ class DonationsController < ApplicationController
   def donation_params
     donation_params = params.require(:donation).permit(
       :amount,
-      :recipient_id,
+      :recipient_name,
       :date,
       :method,
       :status,
     )
-    donation_params[:amount] && donation_params[:amount].gsub!("$", "")
+    donation_params[:amount]&.gsub!("$", "")
     donation_params
   end
 end
