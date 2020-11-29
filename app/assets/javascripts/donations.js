@@ -33,7 +33,9 @@ function makeHeader({query, suggestions}) {
 
 // Instantiate the typeahead UI
 function instantiateRecipientsTypeahead() {
-  $('.typeahead').typeahead(null, {
+  $('.typeahead').typeahead({
+    highlight: true,
+  }, {
     displayKey: 'name',
     source: recipients.ttAdapter(),
     templates: {
