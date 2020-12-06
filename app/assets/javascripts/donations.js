@@ -11,7 +11,7 @@ var recipients = new Bloodhound({
 recipients.initialize();
 
 function makeAddNewLink({query}) {
-  return `<i><a class="tt-suggestion" href="/recipients/new">Add new recipient "${query}"</a></i>`
+  return `<i><a class="tt-suggestion" href="#" data-toggle="modal" data-target="#newRecipientModal">Add new recipient "${query}"</a></i>`
 }
 
 function makeFooter({query}) {
@@ -45,4 +45,3 @@ function instantiateRecipientsTypeahead() {
     }
   })
 }
-
