@@ -22,12 +22,14 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'jquery-ui-rails'
 gem 'omniauth-google-oauth2'
 gem 'puma'
 gem 'record_tag_helper', '~> 1.0'
+gem 'twitter-typeahead-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -19,4 +19,8 @@ Rails.application.routes.draw do
     get :remove_approval, on: :member
     get :toggle_admin, on: :member
   end
+
+  namespace :api do
+    resources :recipients, only: [:index]
+  end
 end

@@ -22,6 +22,15 @@ class Donation < ApplicationRecord
     "$#{amount} to #{recipient.name}"
   end
 
+  def recipient_name=(recipient_name)
+    self.recipient_id = Recipient.find_by(name: recipient_name).id
+    @recipient_name = recipient_name
+  end
+
+  def recipient_name
+    @recipient_name ||= recipient&.name
+  end
+
   def self.method_select_options
     VALID_METHODS.map do |method|
       [Donation.human_attribute_name("method.#{method}"), method]

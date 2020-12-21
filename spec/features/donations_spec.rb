@@ -139,15 +139,10 @@ feature "Donation creation" do
 
         before { visit current_path }
 
-        it "shows the right label for the new recipient button" do
-          new_recipient_button_label = "Add new recipient"
-          expect(find("a.button.warning.right").text).to eq new_recipient_button_label
-        end
-
         context "and the user fills out and submits the form" do
           before do
             fill_in "donation_amount", with: "$100.00"
-            select recipient.name, from: "donation_recipient_id"
+            fill_in "donation_recipient_name", with: recipient.name
             fill_in "donation_date", with: "2000-01-01"
             select "Cash", from: "donation_method"
             select "Planned", from: "donation_status"

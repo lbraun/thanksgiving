@@ -26,14 +26,22 @@ class RecipientsController < ApplicationController
   # POST /recipients.json
   def create
     @recipient = Recipient.new(recipient_params)
-
     respond_to do |format|
       if @recipient.save
-        format.html { redirect_to @recipient, notice: 'Recipient was successfully created.' }
-        format.json { render :show, status: :created, location: @recipient }
+        if request.xhr?
+          format.html
+          format.json { render :show, status: :created, location: @recipient }
+        else
+          format.html { redirect_to @recipient, notice: 'Recipient was successfully created.' }
+          format.json { render :show, status: :created, location: @recipient }
+        end
       else
-        format.html { render :new }
-        format.json { render json: @recipient.errors, status: :unprocessable_entity }
+        if request.xhr?
+          format.json { render json: @recipient.errors, status: :unprocessable_entity }
+        else
+          format.html { render :new }
+          format.json { render json: @recipient.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
