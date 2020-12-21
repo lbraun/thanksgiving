@@ -19,6 +19,7 @@ function makeFooter({query}) {
 }
 
 function makeNotFound(object) {
+  $('#recipient_name').val($('#donation_recipient_name').val())
   return [
     makeAddNewLink(object),
     makeFooter(object),

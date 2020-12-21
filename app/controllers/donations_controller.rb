@@ -23,6 +23,7 @@ class DonationsController < ApplicationController
   # GET /donations/new
   def new
     @donation = Donation.new(date: Date.today)
+    @recipient = Recipient.new
   end
 
   # GET /donations/1/edit
